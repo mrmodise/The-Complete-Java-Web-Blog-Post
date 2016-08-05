@@ -59,7 +59,7 @@ _________________________________________________________ -->
 							th:src="@{/img/logo.png}" alt="Explore Botswana logo"
 							class="hidden-xs hidden-sm" /> <img src="img/logo-small.png"
 							alt="Universal logo" class="visible-xs visible-sm" /><span
-							class="sr-only">Explore Botswana</span>
+							class="sr-only">FinTech Journal</span>
 						</a>
 						<div class="navbar-buttons">
 							<button type="button" class="navbar-toggle btn-template-main"
@@ -77,142 +77,16 @@ _________________________________________________________ -->
 							<li th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}"><a  th:href="@{/}"> Home </a></li>
 							<li th:classappend="${#httpServletRequest.getRequestURI() == '/about-us' ? 'active':''}"><a th:href="@{/about-us}">About
 									Us</a></li>
-							 <!-- ========== FULL WIDTH MEGAMENU ================== -->
-                                <li class="dropdown use-yamm yamm-fw">
-                                    <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Blogs <b class="caret"></b></a>
+							 <li class="dropdown">
+                                    <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Blogs <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="yamm-content">
-                                                <div class="row">
-                                                    <div class="col-sm-3">
-                                                        <h5>Home</h5>
-                                                        <ul>
-                                                            <li><a href="index.html">Option 1: Default Page</a>
-                                                            </li>
-                                                            <li><a href="index2.html">Option 2: Application</a>
-                                                            </li>
-                                                            <li><a href="index3.html">Option 3: Startup</a>
-                                                            </li>
-                                                            <li><a href="index4.html">Option 4: Agency</a>
-                                                            </li>
-                                                            <li><a href="index5.html">Option 5: Portfolio</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>About</h5>
-                                                        <ul>
-                                                            <li><a href="about.html">About us</a>
-                                                            </li>
-                                                            <li><a href="team.html">Our team</a>
-                                                            </li>
-                                                            <li><a href="team-member.html">Team member</a>
-                                                            </li>
-                                                            <li><a href="services.html">Services</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>Marketing</h5>
-                                                        <ul>
-                                                            <li><a href="packages.html">Packages</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>Portfolio</h5>
-                                                        <ul>
-                                                            <li><a href="portfolio-2.html">2 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-2.html">2 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-3.html">3 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-3.html">3 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-4.html">4 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-4.html">4 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-detail.html">Portfolio - detail</a>
-                                                            </li>
-                                                            <li><a href="portfolio-detail-2.html">Portfolio - detail 2</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>User pages</h5>
-                                                        <ul>
-                                                            <li><a href="customer-register.html">Register / login</a>
-                                                            </li>
-                                                            <li><a href="customer-orders.html">Orders history</a>
-                                                            </li>
-                                                            <li><a href="customer-order.html">Order history detail</a>
-                                                            </li>
-                                                            <li><a href="customer-wishlist.html">Wishlist</a>
-                                                            </li>
-                                                            <li><a href="customer-account.html">Customer account / change password</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>Shop</h5>
-                                                        <ul>
-                                                            <li><a href="shop-category.html">Category - sidebar right</a>
-                                                            </li>
-                                                            <li><a href="shop-category-left.html">Category - sidebar left</a>
-                                                            </li>
-                                                            <li><a href="shop-category-full.html">Category - full width</a>
-                                                            </li>
-                                                            <li><a href="shop-detail.html">Product detail</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>Shop - order process</h5>
-                                                        <ul>
-                                                            <li><a href="shop-basket.html">Shopping cart</a>
-                                                            </li>
-                                                            <li><a href="shop-checkout1.html">Checkout - step 1</a>
-                                                            </li>
-                                                            <li><a href="shop-checkout2.html">Checkout - step 2</a>
-                                                            </li>
-                                                            <li><a href="shop-checkout3.html">Checkout - step 3</a>
-                                                            </li>
-                                                            <li><a href="shop-checkout4.html">Checkout - step 4</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>Contact</h5>
-                                                        <ul>
-                                                            <li><a href="contact.html">Contact</a>
-                                                            </li>
-                                                            <li><a href="contact2.html">Contact - version 2</a>
-                                                            </li>
-                                                            <li><a href="contact3.html">Contact - version 3</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>Pages</h5>
-                                                        <ul>
-                                                            <li><a href="text.html">Text page</a>
-                                                            </li>
-                                                            <li><a href="text-left.html">Text page - left sidebar</a>
-                                                            </li>
-                                                            <li><a href="text-full.html">Text page - full width</a>
-                                                            </li>
-                                                            <li><a href="faq.html">FAQ</a>
-                                                            </li>
-                                                            <li><a href="404.html">404 page</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>Blog</h5>
-                                                        <ul>
-                                                            <li><a href="blog.html">Blog listing big</a>
-                                                            </li>
-                                                            <li><a href="blog-medium.html">Blog listing medium</a>
-                                                            </li>
-                                                            <li><a href="blog-small.html">Blog listing small</a>
-                                                            </li>
-                                                            <li><a href="blog-post.html">Blog Post</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /.yamm-content -->
+                                        <li><a href="index.html">Finance</a>
+                                        </li>
+                                        <li><a href="index2.html">Information Technology</a>
+                                        </li>
+                                        <li><a href="index3.html">CV Writing</a>
+                                        </li>
+                                        <li><a href="index4.html">Software Development</a>
                                         </li>
                                     </ul>
                                 </li>
