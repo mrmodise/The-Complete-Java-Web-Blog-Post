@@ -1,15 +1,24 @@
 package com.mrmodise.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.mrmodise.service.PostService;
 
 @Controller
 public class HomeController {
 	
-	@RequestMapping("/")
-	public String home(){
-		return "index";
-	}
+		@Autowired
+		private PostService postService;
+	
+	// root route and mapping to view
+		@RequestMapping("/")
+		public String home(Model model){
+			model.addAttribute("posts", postService.listAll());
+			return "index";
+		}
 	
 	// author of a blog post route and mapping to view
 		@RequestMapping("/author")

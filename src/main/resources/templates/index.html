@@ -22,10 +22,89 @@
 		<div th:replace="fragments/modal :: modal"></div>
 		<!-- END OF LOGIN MODAL -->
 
-		<!--*** START OF POST LIST ***-->
-		<div th:replace="posts/list :: list">This section of the code
-			will be replaced by the list fragment</div>
-		<!--*** END OF POST LIST ***-->
+		<!--*** START OF MAIN ***-->
+	<div id="heading-breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h1>All Posts</h1>
+				</div>
+				<div class="col-md-6">
+					<ul class="breadcrumb">
+						<li><a href="index.html">Home</a></li>
+						<li>Latest Posts</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="content">
+		<div class="container">
+			<div class="row">
+				<!-- *** LEFT COLUMN ***
+			 _________________________________________________________ -->
+
+				<div class="col-md-9" id="blog-listing-medium">
+					<section class="post" th:each="post : ${posts}">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="image">
+									<a href="blog-post.html"> <img th:src="${post.imageName}"
+										class="img-responsive thumbnail" alt="Example blog post alt" />
+									</a>
+								</div>
+							</div>
+							<div class="col-md-8">
+								<h2>
+									<a th:href="|@{/posts/view/}${post.slug}|" th:text="${post.title}">Fashion now</a>
+								</h2>
+								<div class="clearfix">
+									<p class="author-category">
+										By <a href="/member-profile" th:text="${post.author.firstName}">John Snow</a>
+									</p>
+									<p class="date-comments">
+										<a href="#" th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy')}"><i class="fa fa-calendar-o"></i>
+											June 20, 2013</a> <a href="#"><i
+											class="fa fa-comment-o"></i> 8 Comments</a>
+									</p>
+								</div>
+								<p class="intro text-justify" th:text="${post.teaser}">Pellentesque habitant morbi tristique
+									senectus et netus et malesuada fames ac turpis egestas.
+									Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor
+									sit amet, ante. Donec eu libero sit amet quam egestas semper.
+									Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+								<p class="read-more">
+									<a th:href="|@{/posts/view/}${post.slug}|" class="btn btn-template-main">Continue
+										reading</a>
+								</p>
+							</div>
+						</div>
+					</section>
+					
+					<ul class="pager">
+						<li class="previous disabled"><a href="#">&larr; Older</a></li>
+						<li class="next"><a href="#">Newer &rarr;</a></li>
+					</ul>
+
+
+
+				</div>
+				<!-- /.col-md-9 -->
+
+				<!-- *** LEFT COLUMN END *** -->
+				<!-- *** RIGHT COLUMN ***			 _________________________________________________________ -->
+				<div th:replace="fragments/adverts :: adverts">This side menu
+					will be replaced by fragment code</div>
+				<!-- *** END OF RIGHT COLUMN ***-->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</div>
+	<!-- /#content -->
+	<!--*** END OF MAIN ***-->
 
 		<!-- *** START OF INVITE **** -->
 		<div th:replace="fragments/invite :: invite">This section will
@@ -41,12 +120,9 @@
 		<div id="copyright" th:replace="fragments/signature :: sign">
 			This will be replaced by signature fragment</div>
 		<!-- *** COPYRIGHT END *** -->
-
 	</div>
 	<!-- /#all -->
-
 	<!-- #### JAVASCRIPT FILES ### -->
 	<!--/*/ <th:block th:include="fragments/scripts :: scripts"></th:block> /*/-->
 </body>
-
 </html>

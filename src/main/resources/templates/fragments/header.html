@@ -12,7 +12,7 @@ _________________________________________________________ -->
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-5 contact">
-						<p class="hidden-sm hidden-xs">Contact us on 012345678 or
+						<p class="hidden-sm hidden-xs">Contact us today on 012345678 or
 							fintechjournal@gmail.com</p>
 						<p class="hidden-md hidden-lg">
 							<a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>
@@ -33,9 +33,7 @@ _________________________________________________________ -->
 						<div class="login">
 							<a href="#" data-toggle="modal" data-target="#login-modal"><i
 								class="fa fa-sign-in"></i> <span
-								class="hidden-xs text-uppercase">Sign in</span></a> <a
-								th:href="@{/register}"><i class="fa fa-user"></i> <span
-								class="hidden-xs text-uppercase">Sign up</span></a>
+								class="hidden-xs text-uppercase">Admin</span></a> 
 						</div>
 
 					</div>
@@ -75,18 +73,18 @@ _________________________________________________________ -->
 
 						<ul class="nav navbar-nav navbar-right">
 							<li th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}"><a  th:href="@{/}"> Home </a></li>
-							<li th:classappend="${#httpServletRequest.getRequestURI() == '/about-us' ? 'active':''}"><a th:href="@{/about-us}">About
+							<li th:classappend="${#httpServletRequest.getRequestURI() == '/about-financial-tech-journal' ? 'active':''}"><a th:href="@{about-financial-tech-journal}">About
 									Us</a></li>
 							 <li class="dropdown">
                                     <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Blogs <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="index.html">Finance</a>
+                                        <li><a th:href="@{/finance}">Finance</a>
                                         </li>
-                                        <li><a href="index2.html">Information Technology</a>
+                                        <li><a th:href="@{/information-technology}">Information Technology</a>
                                         </li>
-                                        <li><a href="index3.html">CV Writing</a>
+                                        <li><a th:href="@{/cv-writing}">CV Writing</a>
                                         </li>
-                                        <li><a href="index4.html">Software Development</a>
+                                        <li><a th:href="@{/software-development}">Software Development</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -110,20 +108,13 @@ _________________________________________________________ -->
 								</span>
 							</div>
 						</form>
-
 					</div>
 					<!--/.nav-collapse -->
-
 				</div>
-
-
 			</div>
 			<!-- /#navbar -->
-
 		</div>
-
 		<!-- *** NAVBAR END *** -->
-
 	</header>
 	<!-- #### JAVASCRIPT FILES ### -->
 	<!--/*/ <th:block th:include="fragments/scripts :: scripts"></th:block> /*/-->
