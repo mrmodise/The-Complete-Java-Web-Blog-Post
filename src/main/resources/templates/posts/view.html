@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="robots" content="all,follow" />
+<meta name="googlebot" content="index,follow,snippet,archive" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" />
+<title th:text="${post.title}">Explore Botswana Culture</title>
+<!--/*/ <th:block th:include="fragments/headInc :: headInc"></th:block> /*/-->
+</head>
+<body th:fragment="list">
+	<div id="all">
+		<!-- *** START OF HEADER ***  -->
+		<header th:replace="fragments/header :: header"> This section
+			of the header will be replaced by a fragment header </header>
+		<!-- *** END OF HEADER ***  -->
+
+		<!-- START OF LOGIN MODAL  -->
+		<div th:replace="fragments/modal :: modal"></div>
+		<!-- END OF LOGIN MODAL -->
+
+		<!-- START OF MAIN  -->
+		<div id="heading-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h1 th:text="${post.title}">Explore Botswana Culture</h1>
+					</div>
+					<div class="col-md-6">
+						<ul class="breadcrumb">
+							<li>POSTS</li>
+							<li><a th:href="@{/}">ALL POSTS</a></li>
+							<li th:text="${post.title}">ALL POSTS</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ********* END OF MAIN ******** -->
+
+		<div id="content">
+			<div class="container">
+				<div class="row">
+					<!-- *** LEFT COLUMN ***
+			_________________________________________________________ -->
+					<div class="col-md-9" id="blog-post">
+						<p class="text-muted text-uppercase mb-small text-right">
+							By <a href="#" th:text="${post.author.firstName}">John Slim</a> on 
+							<span th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy')}">June
+								20, 2013</span>
+						</p>
+						<p class="lead" th:text="${post.teaser}">This is the lead
+							paragraph of the article. Pellentesque habitant morbi tristique
+							senectus et netus et malesuada fames ac turpis egestas.
+							Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
+
+						<div id="post-content">
+							<p th:text="${post.body}">
+								<strong th:text="${post.title}">Pellentesque habitant morbi tristique</strong> senectus
+								et netus et malesuada fames ac turpis egestas. Vestibulum tortor
+								quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+								Donec eu libero sit amet quam egestas semper. <em>Aenean
+									ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque
+								sit amet est et sapien ullamcorper pharetra. Vestibulum erat
+								wisi, condimentum sed,
+								<code>commodo vitae</code>
+								, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt
+								condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim
+								ac dui. <a href="#">Donec non enim</a> in turpis pulvinar
+								facilisis. Ut felis.
+							</p>
+
+							<p>
+								<img th:src="@{/img/blog2.jpg}" class="img-responsive"
+									alt="Example blog post alt" />
+							</p>
+
+							<blockquote>
+								<p>Image description</p>
+							</blockquote>
+
+							<h3>Header Level 3</h3>
+
+							<p>Pellentesque habitant morbi tristique senectus et netus et
+								malesuada fames ac turpis egestas. Vestibulum tortor quam,
+								feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu
+								libero sit amet quam egestas semper. Aenean ultricies mi vitae
+								est. Mauris placerat eleifend leo. Quisque sit amet est et
+								sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum
+								sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum,
+								elit eget tincidunt condimentum, eros ipsum rutrum orci,
+								sagittis tempus lacus enim ac dui. Donec non enim in turpis
+								pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+								faucibus, tortor neque egestas augue, eu vulputate magna eros eu
+								erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis,
+								accumsan porttitor, facilisis luctus, metus</p>
+
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetuer adipiscing
+									elit.</li>
+								<li>Aliquam tincidunt mauris eu risus.</li>
+							</ul>
+
+							<p>
+								<img th:src="@{/img/blog.jpg}" class="img-responsive"
+									alt="Example blog post alt" />
+							</p>
+
+							<p>Pellentesque habitant morbi tristique senectus et netus et
+								malesuada fames ac turpis egestas. Vestibulum tortor quam,
+								feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu
+								libero sit amet quam egestas semper. Aenean ultricies mi vitae
+								est. Mauris placerat eleifend leo. Quisque sit amet est et
+								sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum
+								sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum,
+								elit eget tincidunt condimentum, eros ipsum rutrum orci,
+								sagittis tempus lacus enim ac dui. Donec non enim in turpis
+								pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+								faucibus, tortor neque egestas augue, eu vulputate magna eros eu
+								erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis,
+								accumsan porttitor, facilisis luctus, metus</p>
+
+						</div>
+						<!-- /#post-content -->
+					</div>
+					<!-- /#blog-post -->
+					<!-- *** LEFT COLUMN END *** -->
+					<!-- /.col-md-9 -->
+					<!-- *** LEFT COLUMN END *** -->
+					<!-- *** RIGHT COLUMN ***			 _________________________________________________________ -->
+						<div th:replace="fragments/adverts :: adverts">This side menu will be replaced by fragment code</div>
+					<!-- *** END OF RIGHT COLUMN ***-->
+				</div>
+			</div>
+		</div>
+		
+		<!-- *** START OF INVITE **** -->
+		<div th:replace="fragments/invite :: invite">This section will
+			be replaced by a fragment</div>
+		<!-- *** END OF INVITE **** -->
+
+		<!-- *** FOOTER ***-->
+		<footer id="footer" th:replace="fragments/footer :: footer">
+			This will be replaced by footer fragment </footer>
+		<!-- *** FOOTER END *** -->
+
+		<!-- *** COPYRIGHT ***____________________________ -->
+		<div id="copyright" th:replace="fragments/signature :: sign">
+			This will be replaced by signature fragment</div>
+	</div>
+	<!-- END OF MAIN -->
+
+	<!-- #### JAVASCRIPT FILES ### -->
+	<!--/*/ <th:block th:include="fragments/scripts :: scripts"></th:block> /*/-->
+</body>
+</html>

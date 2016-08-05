@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="headInc">
+<!-- This will be replaced by the head fragment -->
+</head>
+<body th:fragment="scripts">
+	<!-- #### JAVASCRIPT FILES ### -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
+		></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
+		></script>
+	<script src="js/jquery.cookie.js" th:src="@{/js/jquery.cookie.js}"></script>
+	<script src="js/waypoints.min.js" th:src="@{/js/waypoints.min.js}"></script>
+	<script src="js/jquery.counterup.min.js"
+		th:src="@{/js/jquery.counterup.min.js}"></script>
+	<script src="js/jquery.parallax-1.1.3.js"
+		th:src="@{/js/jquery.parallax-1.1.3.js}"></script>
+	<script src="js/front.js" th:src="@{/js/front.js}"></script>
+	<!-- <script src="/js/custom.js}" th:src="@{/js/custom.js}"></script> -->
+	<!-- owl carousel -->
+	<script src="js/owl.carousel.min.js"
+		th:src="@{/js/owl.carousel.min.js}"></script>
+	<!-- gmaps -->
+	<!-- <script
+		src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+	<script th:src="@{/js/gmaps.js}"></script>
+	<script th:src="@{/js/gmaps.init.js}"></script> -->
+	<!-- gmaps end -->
+</body>
+</html>
