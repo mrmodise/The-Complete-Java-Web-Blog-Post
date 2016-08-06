@@ -1,1 +1,32 @@
 /* your styles go here */
+.card {
+	background-color: #ffffff;
+	box-shadow: 0px 8px 6px -6px #999999;
+	padding: 20px 30px;
+	padding-top: 20px;
+	padding-right: 30px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	border: 1px solid #e0e0e0;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: rgb(224, 224, 224);
+	border-right-color: rgb(224, 224, 224);
+	border-bottom-color: rgb(224, 224, 224);
+	border-left-color: rgb(224, 224, 224);
+	-moz-border-top-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	border-image-source: none;
+	border-image-slice: 100% 100% 100% 100%;
+	border-image-width: 1 1 1 1;
+	border-image-outset: 0 0 0 0;
+	border-image-repeat: stretch stretch;
+}

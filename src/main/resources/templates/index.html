@@ -43,19 +43,17 @@
 	<div id="content">
 		<div class="container">
 			<div class="row">
+			<!-- *** RIGHT COLUMN ***			 _________________________________________________________ -->
+				<div th:replace="fragments/adverts :: adverts">This side menu
+					will be replaced by fragment code</div>
+				<!-- *** END OF RIGHT COLUMN ***-->
 				<!-- *** LEFT COLUMN ***
 			 _________________________________________________________ -->
 
 				<div class="col-md-9" id="blog-listing-medium">
 					<section class="post" th:each="post : ${posts}">
 						<div class="row">
-							<div class="col-md-4">
-								<div class="image">
-									<a href="blog-post.html"> <img th:src="${post.imageName}"
-										class="img-responsive thumbnail" alt="Example blog post alt" />
-									</a>
-								</div>
-							</div>
+							
 							<div class="col-md-8">
 								<h2>
 									<a th:href="|@{/posts/view/}${post.slug}|" th:text="${post.title}">Fashion now</a>
@@ -70,7 +68,7 @@
 											class="fa fa-comment-o"></i> 8 Comments</a>
 									</p>
 								</div>
-								<p class="intro text-justify" th:text="${post.teaser}">Pellentesque habitant morbi tristique
+								<p class="text-justify card" th:text="${post.teaser}">Pellentesque habitant morbi tristique
 									senectus et netus et malesuada fames ac turpis egestas.
 									Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor
 									sit amet, ante. Donec eu libero sit amet quam egestas semper.
@@ -79,6 +77,13 @@
 									<a th:href="|@{/posts/view/}${post.slug}|" class="btn btn-template-main">Continue
 										reading</a>
 								</p>
+							</div>
+							<div class="col-md-4">
+								<div class="image">
+									 <img th:src="${post.imageName}"
+										class="img-responsive thumbnail" alt="Example blog post alt" />
+									
+								</div>
 							</div>
 						</div>
 					</section>
@@ -94,10 +99,7 @@
 				<!-- /.col-md-9 -->
 
 				<!-- *** LEFT COLUMN END *** -->
-				<!-- *** RIGHT COLUMN ***			 _________________________________________________________ -->
-				<div th:replace="fragments/adverts :: adverts">This side menu
-					will be replaced by fragment code</div>
-				<!-- *** END OF RIGHT COLUMN ***-->
+				
 			</div>
 			<!-- /.row -->
 		</div>
