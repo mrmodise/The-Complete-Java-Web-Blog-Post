@@ -18,3 +18,5 @@ $('#myEditor').markdownEditor({
 
 	  }
 });
+
+$('input[maxlength]').maxlength();

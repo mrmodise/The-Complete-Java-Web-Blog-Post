@@ -90,6 +90,7 @@ _________________________________________________________ -->
 							<li th:classappend="${#httpServletRequest.getRequestURI() == '/contact-us' ? 'active':''}"><a th:href="@{/contact-us}">
 									Contact Us</a></li>
 							<li th:classappend="${#httpServletRequest.getRequestURI() == '/our-team' ? 'active':''}"><a th:href="@{/our-team}">Our Team</a></li>
+							<li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/' ? 'active':''}"><a th:href="@{/admin/}">Admin</a></li>
 						</ul>
 					</div>
 					<!--/.nav-collapse -->
