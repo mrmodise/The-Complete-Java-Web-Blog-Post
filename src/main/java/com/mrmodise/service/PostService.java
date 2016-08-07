@@ -9,4 +9,6 @@ public interface PostService {
 	List<Post> list();
 	Post getLatestPost();
 	Post findPostBySlug(String slug);
+	List<Post> findPostByAuthor(String author);
+	List<Post> findDraftPosts();
 }

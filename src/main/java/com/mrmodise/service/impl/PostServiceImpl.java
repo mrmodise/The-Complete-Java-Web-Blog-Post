@@ -32,7 +32,17 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public List<Post> list() {
-		return postRepository.findAllByOrderByPostedOnDesc();
+		return postRepository.findAllByDraft(false);
+	}
+
+	@Override
+	public List<Post> findPostByAuthor(String author) {
+		return postRepository.findByAuthorFirstName(author);
+	}
+
+	@Override
+	public List<Post> findDraftPosts() {
+		return postRepository.findByDraft(true);
 	}
 
 }

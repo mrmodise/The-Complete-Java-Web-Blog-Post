@@ -23,11 +23,11 @@
                                 <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/post/save' ? 'active':''}">
                                         <a href="/admin/post/save" th:href="@{/admin/post/save}"><i class="fa fa-star"></i> New Post</a>
                                     </li>
-                                    <li>
-                                        <a href="customer-orders.html"><i class="fa fa-list"></i> My Posts</a>
+                                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts-by-author/Kagiso' ? 'active':''}">
+                                        <a href="/admin/posts-by-author/Kagiso"><i class="fa fa-list"></i> My Posts</a>
                                     </li>
-                                    <li>
-                                        <a href="customer-wishlist.html"><i class="fa fa-heart"></i> My Drafts</a>
+                                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts/drafts' ? 'active':''}">
+                                        <a href="/admin/posts/drafts"><i class="fa fa-heart"></i> My Drafts</a>
                                     </li>
                                     <li>
                                         <a href="customer-account.html"><i class="fa fa-user"></i> My account</a>
