@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="robots" content="all,follow" />
+<meta name="googlebot" content="index,follow,snippet,archive" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" />
+<title>The financial and technology journal</title>
+<!--/*/ <th:block th:include="fragments/headInc :: headInc"></th:block> /*/-->
+</head>
+<body>
+	<div id="all">
+		<!-- *** START OF HEADER ***  -->
+		<header th:replace="fragments/header :: header">
+			This section of the header will be replaced by a fragment header </header>
+		<!-- *** END OF HEADER ***  -->
+
+		<!--*** START OF MAIN ***-->
+		<div id="heading-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h1>All Posts - Admin</h1>
+					</div>
+					<div class="col-md-6">
+						<ul class="breadcrumb">
+							<li><a th:href="@{/admin/}">Home</a></li>
+							<li>All Posts</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="content">
+			<div class="container">
+				<div class="row">
+					<!-- *** RIGHT COLUMN ***			 _________________________________________________________ -->
+					<div th:replace="admin/fragments/admin-adverts :: admin-adverts">This side menu
+						will be replaced by fragment code</div>
+					<!-- *** END OF RIGHT COLUMN ***-->
+
+					<!-- *** LEFT COLUMN ***			 _________________________________________________________ -->
+					<div class="col-md-10" id="customer-orders">
+
+						<p class="text-muted lead">
+							Manage all the blog posts in a single place
+						</p>
+
+						<div class="box">
+
+							<div class="table-responsive">
+								<table class="table table-hover" >
+									<thead>
+										<tr>
+											<th>Title</th>
+											<th>Slug</th>
+											<th>Date/Time</th>
+											<th>Status</th>
+											<th>Author</th>
+											<th>Edit</th>
+											<th>Delete</th>
+										</tr>
+									</thead>
+									<tbody th:each="post : ${posts}">
+										<tr>
+											<th th:text="${post.title}">title</th>
+											<td th:text="${post.slug}">slug</td>
+											<td th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy hh:mm a')}">22/06/2013</td>
+											<td ><span th:classappend="${post.status == 'active' ? 'label label-info' : 'label label-danger'}" th:text="${post.status}" >Being prepared</span>
+											</td>
+											<td th:text="${post.author.firstName + ' ' + post.author.lastName}">author</td>
+											<td><a href="customer-order.html"
+												class="btn btn-template-main btn-sm"><i class="fa fa-pencil"></i></a></td>
+												<td><a href="customer-order.html"
+												class="btn btn-template-main btn-sm"><i class="fa fa-trash"></i></a></td>
+										</tr>
+										
+									</tbody>
+								</table>
+							</div>
+							<!-- /.table-responsive -->
+
+						</div>
+						<!-- /.box -->
+
+					</div>
+					<!-- /.col-md-9 -->
+
+					<!-- *** LEFT COLUMN END *** -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container -->
+		</div>
+		<!-- /#content -->
+		<!--*** END OF MAIN ***-->
+
+		<!-- *** START OF INVITE **** -->
+		<div th:replace="fragments/invite :: invite">This section will
+			be replaced by a fragment</div>
+		<!-- *** END OF INVITE **** -->
+
+		<!-- *** FOOTER ***-->
+		<footer id="footer" th:replace="fragments/footer :: footer">
+			This will be replaced by footer fragment </footer>
+		<!-- *** FOOTER END *** -->
+
+		<!-- *** COPYRIGHT ***____________________________ -->
+		<div id="copyright" th:replace="fragments/signature :: sign">
+			This will be replaced by signature fragment</div>
+		<!-- *** COPYRIGHT END *** -->
+	</div>
+	<!-- /#all -->
+	<!-- #### JAVASCRIPT FILES ### -->
+	<!--/*/ <th:block th:include="fragments/scripts :: scripts"></th:block> /*/-->
+</body>
+</html>

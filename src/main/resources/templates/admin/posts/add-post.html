@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" />
+<title>Add a new post</title>
+<!--/*/ <th:block th:include="fragments/headInc :: headInc"></th:block> /*/-->
+</head>
+<body>
+	<!-- *** START OF HEADER ***  -->
+	<header th:replace="fragments/header :: header"> This section
+		of the header will be replaced by a fragment header </header>
+	<!-- *** END OF HEADER ***  -->
+
+	<!--*** START OF MAIN ***-->
+	<div id="heading-breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h1>New Post - Admin</h1>
+				</div>
+				<div class="col-md-6">
+					<ul class="breadcrumb">
+						<li><a th:href="@{/admin/}">ADMIN</a></li>
+						<li>New Post</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="content" class="clearfix">
+
+		<div class="container">
+
+			<div class="row">
+
+				<!-- *** LEFT COLUMN ***			 _________________________________________________________ -->
+				<div th:replace="admin/fragments/admin-adverts :: admin-adverts">This
+					side menu will be replaced by fragment code</div>
+				<!-- END OF LEFT COLUMN -->
+
+				<!-- *** RIGHT COLUMN ***			 _________________________________________________________ -->
+				<div class="col-md-10" id="customer-account">
+					<div class="box clearfix">
+						<div class="heading">
+							<h3 class="text-uppercase">New Post details</h3>
+						</div>
+
+						<form>
+							<div class="form-group">
+								<label for="title">Title</label> <input type="text"
+									id="title" name="title" class="form-control"
+									placeholder="title?" required="required" />
+							</div>
+							<div class="form-group">
+								<label for="slug">Slug</label>
+								<input type="text" class="form-control" readonly="readonly"/>
+							</div>
+							<div class="form-group">
+								<label for="teaser">Teaser</label>
+								<input type="text" class="form-control" placeholder="teaser?"/>
+							</div>
+							<div class="form-group">
+								<label for="draft">Draft</label>
+								<input type="checkbox"/>
+							</div>
+							<div class="form-group">
+							<label for="status">Status</label>
+								<select name="status" id="status" class="form-control">
+									<option value="active">Active</option>
+									<option value="inactive">Inactive</option>
+								</select>
+							</div>
+							<div class="form-group">
+							<label for="body">Body</label>
+								<textarea name="text" id="myEditor"># Test</textarea>
+							</div>
+							
+							<button type="submit" class="btn btn-template-main">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- #### JAVASCRIPT FILES ### -->
+	<!--/*/ <th:block th:include="fragments/scripts :: scripts"></th:block> /*/-->
+</body>
+</html>

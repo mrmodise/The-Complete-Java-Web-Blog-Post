@@ -6,6 +6,7 @@ import com.mrmodise.domain.Post;
 
 public interface PostService {
 	List<Post> listAll();
+	List<Post> list();
 	Post getLatestPost();
 	Post findPostBySlug(String slug);
 }

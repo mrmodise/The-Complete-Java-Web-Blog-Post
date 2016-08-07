@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="headInc">
+<!-- This will be replaced by the head fragment -->
+</head>
+<body>
+ <!-- *** RIGHT COLUMN ***
+			 _________________________________________________________ -->
+
+                    <div class="col-md-2" th:fragment="admin-adverts">
+                        <!-- *** CUSTOMER MENU ***
+ _________________________________________________________ -->
+                        <div class="panel panel-default sidebar-menu">
+
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Admin section</h3>
+                            </div>
+
+                            <div class="panel-body">
+
+                                <ul class="nav nav-pills nav-stacked">
+                                <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/post/save' ? 'active':''}">
+                                        <a href="customer-orders.html"><i class="fa fa-star"></i> New Post</a>
+                                    </li>
+                                    <li>
+                                        <a href="customer-orders.html"><i class="fa fa-list"></i> My Posts</a>
+                                    </li>
+                                    <li>
+                                        <a href="customer-wishlist.html"><i class="fa fa-heart"></i> My Drafts</a>
+                                    </li>
+                                    <li>
+                                        <a href="customer-account.html"><i class="fa fa-user"></i> My account</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.html"><i class="fa fa-sign-out"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- /.col-md-3 -->
+
+                        <!-- *** CUSTOMER MENU END *** -->
+                    </div>
+
+                    <!-- *** RIGHT COLUMN END *** -->
+</body>
+</html>

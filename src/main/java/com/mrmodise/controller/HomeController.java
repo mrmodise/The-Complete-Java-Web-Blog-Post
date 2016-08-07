@@ -13,14 +13,14 @@ public class HomeController {
 		@Autowired
 		private PostService postService;
 	
-	// root route and mapping to view
+		// root route and mapping to view
 		@RequestMapping("/")
 		public String home(Model model){
-			model.addAttribute("posts", postService.listAll());
+			model.addAttribute("posts", postService.list());
 			return "index";
 		}
 	
-	// author of a blog post route and mapping to view
+		// author of a blog post route and mapping to view
 		@RequestMapping("/author")
 		public String author(){
 			return "author/staff-writer";
@@ -49,11 +49,4 @@ public class HomeController {
 		public String aboutUs(){
 			return "about-us/about-us";
 		}
-		
-		// about us route and mapping to view
-			@RequestMapping("/register")
-			public String register(){
-				return "register/guest-register";
-			}
-
 }

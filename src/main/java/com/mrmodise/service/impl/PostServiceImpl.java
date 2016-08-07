@@ -30,4 +30,9 @@ public class PostServiceImpl implements PostService {
 		return postRepository.findBySlug(slug);
 	}
 
+	@Override
+	public List<Post> list() {
+		return postRepository.findAllByOrderByPostedOnDesc();
+	}
+
 }

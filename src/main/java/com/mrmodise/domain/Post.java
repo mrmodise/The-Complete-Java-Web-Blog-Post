@@ -29,6 +29,10 @@ public class Post {
 	
 	private String slug;
 	
+	private String status;
+	
+	private boolean draft;
+	
 	@CreatedDate @Column(columnDefinition = "TIMESTAMP")
 	private Date postedOn;
 	

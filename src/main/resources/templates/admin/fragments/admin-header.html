@@ -5,7 +5,7 @@
 </head>
 <body>
 	<!-- start of header -->
-	<header th:fragment="header">
+	<header th:fragment="admin-header">
 		<!-- *** TOP ***
 _________________________________________________________ -->
 		<div id="top">
@@ -31,9 +31,9 @@ _________________________________________________________ -->
 						</div>
 
 						<div class="login">
-							<a href="#" data-toggle="modal" data-target="#login-modal"><i
-								class="fa fa-sign-in"></i> <span
-								class="hidden-xs text-uppercase">Admin</span></a> 
+							<a href="#"><i
+								class="fa fa-sign-out"></i> <span
+								class="hidden-xs text-uppercase">Sign out</span></a> 
 						</div>
 
 					</div>
@@ -56,7 +56,7 @@ _________________________________________________________ -->
 						<a class="navbar-brand home" th:href="@{/}"> <img
 							th:src="@{/img/logo.png}" alt="Explore Botswana logo"
 							class="hidden-xs hidden-sm" /> <img src="img/logo-small.png"
-							alt="FinTech logo" class="visible-xs visible-sm" /><span
+							alt="Universal logo" class="visible-xs visible-sm" /><span
 							class="sr-only">FinTech Journal</span>
 						</a>
 						<div class="navbar-buttons">
@@ -72,6 +72,7 @@ _________________________________________________________ -->
 					<div class="navbar-collapse collapse" id="navigation">
 
 						<ul class="nav navbar-nav navbar-right">
+						
 							<li th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}"><a  th:href="@{/}"> Home </a></li>
 							<li th:classappend="${#httpServletRequest.getRequestURI() == '/about-financial-tech-journal' ? 'active':''}"><a th:href="@{about-financial-tech-journal}">Services</a></li>
 							 <li class="dropdown">
