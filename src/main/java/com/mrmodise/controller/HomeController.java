@@ -3,6 +3,7 @@ package com.mrmodise.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mrmodise.service.PostService;
@@ -33,8 +34,9 @@ public class HomeController {
 		}
 		
 		// member profile route and mapping to view
-		@RequestMapping("/member-profile")
-		public String member(){
+		@RequestMapping("/member-profile/{author}")
+		public String member(@PathVariable(value="author") String author, Model model){
+			model.addAttribute("author", postService.findPostByAuthor(author));
 			return "member/member-profile";
 		}
 		

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/headInc :: headInc">
+</head>
+<body>
+	<div id="all">
+		<header th:replace="fragments/header :: header"> This section
+			of the header will be replaced by a fragment header </header>
+
+		<div id="content">
+            <div class="container">
+
+                <div class="col-sm-6 col-sm-offset-3" id="error-page">
+
+                    <div class="box">
+                        <h3 th:text="${error}" style="color: red;">We are sorry - this page is not here anymore</h3>
+                        <p th:text="${path}" class="lead" style="color: red;"></p>
+                        <h4 class="text-muted">Error <span th:text="${status}">404</span>: <span th:text="${message}"></span></h4>
+						<p th:text="${#calendars.format(timestamp, 'M/dd/yyyy hh:mm:ss a')}"></p>
+                        <p class="buttons"><a href="index.html" th:href="@{/}" class="btn btn-template-main"><i class="fa fa-home"></i> Go to Homepage</a>
+                        </p>
+                    </div>
+
+
+                </div>
+                <!-- /.col-sm-6 -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+	
+		<!-- *** GET IT ***______________________________________________________ -->
+		<div th:replace="fragments/invite :: invite">
+			This section will be replaced by the invite message in a fragment
+		</div>
+		<!-- *** GET IT END *** -->
+
+		<!-- *** FOOTER ***______________________________________________ -->
+		<footer id="footer" th:replace="fragments/footer :: footer">
+			This will be replaced by footer fragment </footer>
+		<!-- *** FOOTER END *** -->
+		<!-- *** COPYRIGHT ***____________________________ -->
+		<div id="copyright" th:replace="fragments/signature :: sign">
+			This will be replaced by signature fragment</div>
+		<!-- *** COPYRIGHT END *** -->
+	</div>
+</body>
+</html>

@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -19,25 +22,33 @@ public class Post {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	@NotEmpty
 	private String title;
 	
+	@NotEmpty
 	@Column(columnDefinition="TEXT")
 	private String body;
 	
 	@Column(columnDefinition="TEXT")
 	private String teaser;
 	
+	@NotEmpty
 	private String slug;
 	
+	@NotEmpty
 	private String status;
 	
 	private boolean draft;
 	
-	@CreatedDate @Column(columnDefinition = "TIMESTAMP")
+	@CreatedDate 
+	@Column(columnDefinition = "TIMESTAMP")
+	@DateTimeFormat ( pattern="M/dd/yyyy hh:mm:ss a")
 	private Date postedOn;
 	
 	private String imageName;
 	
+	@NotNull
 	@ManyToOne
 	private Author author;
 	
@@ -46,9 +57,10 @@ public class Post {
 	}
 		
 	public Post(String title, String body, Date postedOn) {
-		super();
 		this.title = title;
 		this.body = body;
 		this.postedOn = postedOn;
 	}
+	
+	
 }

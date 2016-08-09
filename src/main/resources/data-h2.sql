@@ -96,3 +96,6 @@ If you need any more information please comment below and I shall provide such..
 insert into post(id,image_name, title,slug,teaser,body,author_id,posted_on, draft, status) values (1,'img/cv-writing.jpg','ADOPTING BUSINESS STRATEGIES TO YOUR CAREER STRATEGY', 'business-strategy-to-your-career-strategy', @TEASER,@BODY, 1, CURRENT_TIMESTAMP, 'false', 'active');
 insert into post(id,image_name, title,slug,teaser,body,author_id,posted_on, draft, status) values (2,'img/typing.jpg','HOW I LEARNT TO TYPE', 'how-I-learn-to-type', @TEASER1,@BODY1, 1, CURRENT_TIMESTAMP, 'true', 'inactive');
 insert into post(id,image_name, title,slug,teaser,body,author_id,posted_on, draft, status) values (3,'img/candidate-cv-writing.png','STUDYING CIMA PART TIME IN BOTSWANA', 'studying-cima-part-time-in-Botswana', @TEASER3,@BODY3, 1, CURRENT_TIMESTAMP, 'false', 'active');
+
+
+insert into category values (1, 'IT Tutorial');

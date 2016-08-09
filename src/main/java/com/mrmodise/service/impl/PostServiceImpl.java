@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mrmodise.domain.Post;
 import com.mrmodise.repository.PostRepository;
 import com.mrmodise.service.PostService;
-import com.mrmodise.domain.Post;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -18,11 +18,6 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public List<Post> listAll() {
 		return (List<Post>) postRepository.findAll();
-	}
-
-	@Override
-	public Post getLatestPost() {
-		return postRepository.findFirstByOrderByPostedOn();
 	}
 
 	@Override
@@ -43,6 +38,21 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public List<Post> findDraftPosts() {
 		return postRepository.findByDraft(true);
+	}
+
+	@Override
+	public Post getPost(Long id) {
+		return postRepository.findOne(id);
+	}
+
+	@Override
+	public Post savePost(Post post) {
+		return postRepository.save(post);
+	}
+
+	@Override
+	public void deletePost(Long id) {
+		postRepository.delete(id);
 	}
 
 }

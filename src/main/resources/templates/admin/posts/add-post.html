@@ -49,36 +49,74 @@
 							<h3 class="text-uppercase">New Post details</h3>
 						</div>
 
-						<form>
-							<div class="form-group">
-								<label for="title">Title</label> <input type="text"
-									id="title" name="title" class="form-control"
-									placeholder="title?" required="required" maxlength="15"/>
+						<form th:action="@{/admin/post/save}" method="post"
+							th:object="${post}">
+							<input type="hidden" th:field="*{id}" />
+							<div class="form-group"
+								th:classappend="${#fields.hasErrors('title')}? 'has-error'">
+								<label for="title">Title</label> <input type="text" id="title"
+									name="title" class="form-control"
+									placeholder="The title should not be more than 60 characters"
+									maxlength="60" th:field="*{title}" /> <span
+									th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+									th:class="help-block">Title Errors</span>
 							</div>
-							<div class="form-group">
-								<label for="slug">Slug</label>
-								<input type="text" class="form-control" readonly="readonly"/>
+
+							<div class="form-group"
+								th:classappend="${#fields.hasErrors('slug')}? 'has-error'">
+								<label for="slug">Slug</label> <input type="text"
+									class="form-control" name="slug" id="slug" th:field="*{slug}" />
+								<span th:if="${#fields.hasErrors('slug')}" th:errors="*{slug}"
+									th:class="help-block">Slug Errors</span>
+							</div>
+							<div class="form-group"
+								th:classappend="${#fields.hasErrors('slug')}? 'has-error'">
+								<label for="teaser">Posted On</label>
+								<div class='input-group date' id='datetimepicker1'>
+									<input type='text' th:field="*{postedOn}" class="form-control" />
+									<span class="input-group-addon"> <span
+										class="glyphicon glyphicon-calendar"></span>
+									</span>
+
+								</div>
+								<span th:if="${#fields.hasErrors('postedOn')}"
+									th:errors="*{postedOn}" th:class="help-block">Posted On
+									Errors</span>
 							</div>
 							<div class="form-group">
 								<label for="teaser">Teaser</label>
-								<input type="text" class="form-control" placeholder="teaser?"/>
+								<textarea class="form-control" cols="3" rows="3" maxlength="225"
+									placeholder="teaser?" th:field="*{teaser}"></textarea>
 							</div>
 							<div class="form-group">
-								<label for="draft">Draft</label>
-								<input type="checkbox"/>
+								<label for="draft">Draft</label> <input type="checkbox"
+									th:field="*{draft}" />
 							</div>
+							<div th:class="form-group"
+							>
+								<label for="status">Author</label> <select name="status"
+									id="status" class="form-control" th:field="*{author}">
+									<option th:each="author : ${authors}" th:value="${author.id}"
+										th:text="${author.firstName + ' ' + author.lastName}">Authors</option>
+								</select> 
+							</div>
+
 							<div class="form-group">
-							<label for="status">Status</label>
-								<select name="status" id="status" class="form-control">
+								<label for="status">Status</label> <select name="status"
+									id="status" class="form-control" th:field="*{status}">
 									<option value="active">Active</option>
 									<option value="inactive">Inactive</option>
 								</select>
 							</div>
-							<div class="form-group">
-							<label for="body">Body</label>
-								<textarea name="text" id="myEditor" maxlength="10"># Test</textarea>
+							<div class="form-group"
+								th:classappend="${#fields.hasErrors('body')}? 'has-error'">
+								<label for="body">Body</label>
+								<textarea name="text" cols="5" class="form-control" rows="10"
+									placeholder="post content?" th:field="*{body}"></textarea>
+								<span th:if="${#fields.hasErrors('body')}" th:errors="*{body}"
+									th:class="help-block">Body Errors</span>
 							</div>
-							
+
 							<button type="submit" class="btn btn-template-main">Submit</button>
 						</form>
 					</div>
@@ -88,5 +126,24 @@
 	</div>
 	<!-- #### JAVASCRIPT FILES ### -->
 	<!--/*/ <th:block th:include="fragments/scripts :: scripts"></th:block> /*/-->
+
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		$(function() {
+			$('#datetimepicker1').datetimepicker();
+
+			$('input[maxlength]').maxlength({
+				alwaysShow : true,
+				threshold : 20,
+				warningClass : "label label-success",
+				limitReachedClass : "label label-danger"
+			});
+			$('textarea#textarea').maxlength({
+				alwaysShow : true
+			});
+		});
+
+		/*]]>*/
+	</script>
 </body>
 </html>

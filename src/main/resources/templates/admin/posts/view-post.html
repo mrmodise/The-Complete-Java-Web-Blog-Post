@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" />
+<title>Add a new post</title>
+<!--/*/ <th:block th:include="fragments/headInc :: headInc"></th:block> /*/-->
+</head>
+<body>
+	<!-- *** START OF HEADER ***  -->
+	<header th:replace="fragments/header :: header"> This section
+		of the header will be replaced by a fragment header </header>
+	<!-- *** END OF HEADER ***  -->
+
+	<!--*** START OF MAIN ***-->
+	<div id="heading-breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h1>View Post - Admin</h1>
+				</div>
+				<div class="col-md-6">
+					<ul class="breadcrumb">
+						<li><a th:href="@{/admin/}">ALL POSTS</a></li>
+						<li>View Post</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="content" class="clearfix">
+
+		<div class="container">
+
+			<div class="row">
+
+				<!-- *** LEFT COLUMN ***			 _________________________________________________________ -->
+				<div th:replace="admin/fragments/admin-adverts :: admin-adverts">This
+					side menu will be replaced by fragment code</div>
+				<!-- END OF LEFT COLUMN -->
+
+				<!-- *** RIGHT COLUMN ***			 _________________________________________________________ -->
+				<div class="col-md-10" id="customer-account">
+					<div class="box clearfix">
+						<div class="heading">
+							<h3 class="text-uppercase">Post details</h3>
+							<a th:href="@{/admin/}" class="pull-right btn btn-template">Back</a>
+						</div>
+
+						<form>
+							<div class="form-group">
+								<label for="title" class="lead" style="font-weight: bold;">Title: </label> <label  th:text="${post.title}"></label>
+							</div>
+							<div class="form-group">
+								<label for="slug" class="lead" style="font-weight: bold;">Slug: </label>
+								<span class="text-justify" th:text="${post.slug}"></span>
+							</div>
+							<div class="form-group">
+								<label for="slug" class="lead" style="font-weight: bold;">Posted On: </label>
+								<span class="text-justify" th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy hh:mm a')}"></span>
+							</div>
+							<div class="form-group">
+								<label for="teaser" class="lead" style="font-weight: bold;">Teaser: </label>
+								<span class="text-justify" th:text="${post.teaser}"></span>
+							</div>
+							<div class="form-group">
+								<label for="draft" class="lead" style="font-weight: bold;">Draft: </label>
+								<span th:text="${post.draft}"></span>
+							</div>
+							<div class="form-group">
+							<label for="status" style="font-weight: bold;">Status: </label>
+								<span th:text="${post.status}"></span>
+							</div>
+							<div class="form-group">
+							<label for="body" class="lead" style="font-weight: bold;">Content: </label>
+								<p th:text="${post.body}" class="text-justify"></p>
+							</div>
+							
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- #### JAVASCRIPT FILES ### -->
+	<!--/*/ <th:block th:include="fragments/scripts :: scripts"></th:block> /*/-->
+</body>
+</html>

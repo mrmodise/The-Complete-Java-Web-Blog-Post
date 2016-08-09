@@ -20,8 +20,8 @@
                             <div class="panel-body">
 
                                 <ul class="nav nav-pills nav-stacked">
-                                <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/post/save' ? 'active':''}">
-                                        <a href="/admin/post/save" th:href="@{/admin/post/save}"><i class="fa fa-star"></i> New Post</a>
+                                <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/post/create' ? 'active':''}">
+                                        <a href="/admin/post/create" th:href="@{/admin/post/create}"><i class="fa fa-star"></i> New Post</a>
                                     </li>
                                     <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts-by-author/Kagiso' ? 'active':''}">
                                         <a href="/admin/posts-by-author/Kagiso"><i class="fa fa-list"></i> My Posts</a>

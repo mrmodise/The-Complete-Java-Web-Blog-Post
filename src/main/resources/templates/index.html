@@ -60,12 +60,12 @@
 								</h2>
 								<div class="clearfix">
 									<p class="author-category">
-										By <a href="/member-profile" th:text="${post.author.firstName + ' ' + post.author.lastName}">John Snow</a>
+										By <a th:href="@{/member-profile}" th:text="${post.author.firstName + ' ' + post.author.lastName}">John Snow</a>
 									</p>
 									<p class="date-comments">
-										<a href="#" th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy')}"><i class="fa fa-calendar-o"></i>
-											June 20, 2013</a> <a href="#"><i
-											class="fa fa-comment-o"></i> 8 Comments</a>
+										<a th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy')}"><i class="fa fa-calendar-o"></i>
+											June 20, 2013</a> <!-- <a href="#"><i
+											class="fa fa-comment-o"></i> 8 Comments</a> -->
 									</p>
 								</div>
 								<p class="text-justify card" th:text="${post.teaser}">Pellentesque habitant morbi tristique
