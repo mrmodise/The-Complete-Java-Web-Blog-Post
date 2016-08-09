@@ -69,7 +69,7 @@
 								<span th:if="${#fields.hasErrors('slug')}" th:errors="*{slug}"
 									th:class="help-block">Slug Errors</span>
 							</div>
-							<div class="form-group"
+							<!-- <div class="form-group"
 								th:classappend="${#fields.hasErrors('slug')}? 'has-error'">
 								<label for="teaser">Posted On</label>
 								<div class='input-group date' id='datetimepicker1'>
@@ -82,23 +82,29 @@
 								<span th:if="${#fields.hasErrors('postedOn')}"
 									th:errors="*{postedOn}" th:class="help-block">Posted On
 									Errors</span>
-							</div>
-							<div class="form-group">
+							</div> -->
+							<div class="form-group" th:classappend="${#fields.hasErrors('teaser')}? 'has-error'">
 								<label for="teaser">Teaser</label>
 								<textarea class="form-control" cols="3" rows="3" maxlength="225"
 									placeholder="teaser?" th:field="*{teaser}"></textarea>
+									<span th:if="${#fields.hasErrors('teaser')}"
+									th:errors="*{teaser}" th:class="help-block">Teaser
+									Errors</span>
 							</div>
 							<div class="form-group">
 								<label for="draft">Draft</label> <input type="checkbox"
 									th:field="*{draft}" />
 							</div>
-							<div th:class="form-group"
-							>
+							<div th:class="form-group" th:classappend="${#fields.hasErrors('author.id')}? 'has-error'">
 								<label for="status">Author</label> <select name="status"
-									id="status" class="form-control" th:field="*{author}">
+									id="status" class="form-control" th:field="*{author.id}">
 									<option th:each="author : ${authors}" th:value="${author.id}"
 										th:text="${author.firstName + ' ' + author.lastName}">Authors</option>
 								</select> 
+								
+								<span th:if="${#fields.hasErrors('author.id')}"
+									th:errors="*{author.id}" th:class="help-block">Author
+									Errors</span>
 							</div>
 
 							<div class="form-group">

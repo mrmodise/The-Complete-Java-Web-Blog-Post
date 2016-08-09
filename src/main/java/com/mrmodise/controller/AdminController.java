@@ -1,8 +1,11 @@
 package com.mrmodise.controller;
 
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +20,7 @@ import com.mrmodise.service.PostService;
 
 @Controller
 @RequestMapping("/admin")
+@Secured( {"ROLE_ADMIN"} )
 public class AdminController {
 
 	private PostService postService;
@@ -49,9 +53,10 @@ public class AdminController {
 
 		if (bindingResult.hasErrors()) {
 			// get a list of authors
-			//model.addAttribute("authors", authorService.findAllAuthors());
+			model.addAttribute("authors", authorService.findAllAuthors());
 			return "admin/posts/add-post";
 		} else {
+			post.setPostedOn(new Date());
 			Post savedPost = postService.savePost(post);
 			return "redirect:/admin/post/single/view/" + savedPost.getId();
 		}
@@ -87,8 +92,10 @@ public class AdminController {
 	
 	@RequestMapping("/post/edit/{id}")
 	public String editPost(@PathVariable(value="id") Long id, Model model) {
+
 		// create a new post object
 		model.addAttribute("post", postService.getPost(id));
+
 		// get a list of authors
 		model.addAttribute("authors", authorService.findAllAuthors());
 

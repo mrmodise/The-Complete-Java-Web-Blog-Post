@@ -23,90 +23,112 @@
 		<!-- END OF LOGIN MODAL -->
 
 		<!--*** START OF MAIN ***-->
-	<div id="heading-breadcrumbs">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<h1>All Posts</h1>
-				</div>
-				<div class="col-md-6">
-					<ul class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
-						<li>Latest Posts</li>
-					</ul>
+		<div id="heading-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h1>All Posts</h1>
+					</div>
+					<div class="col-md-6">
+						<ul class="breadcrumb">
+							<li><a href="index.html">Home</a></li>
+							<li>Latest Posts</li>
+						</ul>
 
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div id="content">
-		<div class="container">
-			<div class="row">
-			<!-- *** RIGHT COLUMN ***			 _________________________________________________________ -->
-				<div th:replace="fragments/adverts :: adverts">This side menu
-					will be replaced by fragment code</div>
-				<!-- *** END OF RIGHT COLUMN ***-->
-				<!-- *** LEFT COLUMN ***
+		<div id="content">
+			<div class="container">
+				<div class="row">
+					<!-- *** RIGHT COLUMN ***			 _________________________________________________________ -->
+					<div th:replace="fragments/adverts :: adverts">This side menu
+						will be replaced by fragment code</div>
+					<!-- *** END OF RIGHT COLUMN ***-->
+					<!-- *** LEFT COLUMN ***
 			 _________________________________________________________ -->
 
-				<div class="col-md-9" id="blog-listing-medium">
-					<section class="post" th:each="post : ${posts}">
-						<div class="row">
-							
-							<div class="col-md-8">
-								<h2>
-									<a th:href="|@{/posts/view/}${post.slug}|" th:text="${post.title}">Fashion now</a>
-								</h2>
-								<div class="clearfix">
-									<p class="author-category">
-										By <a th:href="@{/member-profile}" th:text="${post.author.firstName + ' ' + post.author.lastName}">John Snow</a>
-									</p>
-									<p class="date-comments">
-										<a th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy')}"><i class="fa fa-calendar-o"></i>
-											June 20, 2013</a> <!-- <a href="#"><i
+					<div class="col-md-9" id="blog-listing-medium">
+						<section class="post" th:each="post : ${posts}">
+							<div class="row">
+
+								<div class="col-md-8">
+									<h2>
+										<a th:href="|@{/posts/view/}${post.slug}|"
+											th:text="${post.title}">Fashion now</a>
+									</h2>
+									<div class="clearfix">
+										<p class="author-category">
+											By <a th:href="@{/member-profile}"
+												th:text="${post.author.firstName + ' ' + post.author.lastName}">John
+												Snow</a>
+										</p>
+										<p class="date-comments">
+											<a
+												th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy')}"><i
+												class="fa fa-calendar-o"></i> June 20, 2013</a>
+											<!-- <a href="#"><i
 											class="fa fa-comment-o"></i> 8 Comments</a> -->
-									</p>
-								</div>
-								<p class="text-justify card" th:text="${post.teaser}">Pellentesque habitant morbi tristique
-									senectus et netus et malesuada fames ac turpis egestas.
-									Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor
-									sit amet, ante. Donec eu libero sit amet quam egestas semper.
-									Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-							<!-- 	<p class="read-more">
+										</p>
+									</div>
+									<p class="text-justify card" th:text="${post.teaser}">Pellentesque
+										habitant morbi tristique senectus et netus et malesuada fames
+										ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+										ultricies eget, tempor sit amet, ante. Donec eu libero sit
+										amet quam egestas semper. Aenean ultricies mi vitae est.
+										Mauris placerat eleifend leo.</p>
+									<!-- 	<p class="read-more">
 									<a th:href="|@{/posts/view/}${post.slug}|" class="btn btn-template-main">Continue
 										reading</a>
 								</p> -->
+								</div>
+								<div class="col-md-4">
+									<div class="image">
+										<img th:src="${post.imageName}"
+											class="img-responsive thumbnail" alt="Example blog post alt" />
+
+									</div>
+								</div>
 							</div>
-							<div class="col-md-4">
-								<div class="image">
-									 <img th:src="${post.imageName}"
-										class="img-responsive thumbnail" alt="Example blog post alt" />
-									
+						</section>
+						<div class="col-md-9 pager">
+							<div class="wp-example" id="pagination">
+								<div class="row">
+									<div class="col-md-12">
+										<ul class="pagination pagination-lg">
+											<li><a href="#">«</a></li>
+											<li><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#">»</a></li>
+										</ul>
+									</div>
 								</div>
 							</div>
 						</div>
-					</section>
-					
-					<ul class="pager">
+						<!-- <ul class="pager">
 						<li class="previous disabled"><a href="#">&larr; Older</a></li>
 						<li class="next"><a href="#">Newer &rarr;</a></li>
-					</ul>
+					</ul> -->
 
 
+
+					</div>
+					<!-- /.col-md-9 -->
+
+					<!-- *** LEFT COLUMN END *** -->
 
 				</div>
-				<!-- /.col-md-9 -->
-
-				<!-- *** LEFT COLUMN END *** -->
-				
+				<!-- /.row -->
 			</div>
-			<!-- /.row -->
+			<!-- /.container -->
 		</div>
-		<!-- /.container -->
-	</div>
-	<!-- /#content -->
-	<!--*** END OF MAIN ***-->
+		<!-- /#content -->
+		<!--*** END OF MAIN ***-->
 
 		<!-- *** START OF INVITE **** -->
 		<div th:replace="fragments/invite :: invite">This section will

@@ -2,7 +2,9 @@ package com.mrmodise.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -20,7 +22,7 @@ public class Author {
 	private String lastName;
 	private String email;
 	
-	@OneToMany(mappedBy="author")
+	@OneToMany(cascade = {CascadeType.REMOVE, CascadeType.MERGE},fetch = FetchType.EAGER, mappedBy="author", orphanRemoval=true)
 	private List<Post> posts;
 	
 	public Author(){

@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -30,6 +29,7 @@ public class Post {
 	@Column(columnDefinition="TEXT")
 	private String body;
 	
+	@NotEmpty
 	@Column(columnDefinition="TEXT")
 	private String teaser;
 	
@@ -43,16 +43,16 @@ public class Post {
 	
 	@CreatedDate 
 	@Column(columnDefinition = "TIMESTAMP")
-	@DateTimeFormat ( pattern="M/dd/yyyy hh:mm:ss a")
 	private Date postedOn;
 	
 	private String imageName;
 	
 	@NotNull
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Author author;
 	
 	public Post(){
+		this.draft = false;
 		
 	}
 		
