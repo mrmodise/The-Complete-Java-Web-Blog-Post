@@ -99,3 +99,11 @@ insert into post(id,image_name, title,slug,teaser,body,author_id,posted_on, draf
 
 
 insert into category values (1, 'IT Tutorial');
+insert into users values (10010, 'modisemorebodi@gmail.com', 'morebodi modise', 'Rekz9434-//');
+insert into roles values (3, 'ADMIN');
+insert into roles values (1, 'USER');
+insert into users values (10011, 'kagisomodise@gmail.com', 'kagiso modise', 'kagisomodise');
+insert into user_roles values (10010, 3);
+insert into user_roles values (10010, 1);
+insert into user_roles values (10011, 1);
+insert into user_roles values (10011, 3);

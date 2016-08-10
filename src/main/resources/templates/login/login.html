@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Welcome</title>
+<meta charset="utf-8" />
+<meta name="robots" content="all,follow" />
+<meta name="googlebot" content="index,follow,snippet,archive" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" />
+<!--/*/ <th:block th:include="fragments/headInc :: headInc"></th:block> /*/-->
+</head>
+<body>
+	<div id="all">
+		<!-- *** START OF HEADER ***  -->
+		<header th:replace="fragments/header :: header"> This section
+			of the header will be replaced by a fragment header </header>
+		<!-- *** END OF HEADER ***  -->
+
+		<!-- START OF LOGIN MODAL  -->
+		<div th:replace="fragments/modal :: modal"></div>
+		<!-- END OF LOGIN MODAL -->
+
+		<div id="heading-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7"></div>
+					<div class="col-md-5">
+						<ul class="breadcrumb">
+							<li><a href="/">Home</a></li>
+							<li>Login</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="box">
+						<p class="lead text-center">Admin Access Only</p>
+						<hr />
+						<form name="f" th:action="@{/login}" method="post"
+							class="col-lg-6 col-md-offset-3">
+							
+							<div th:if="${param.error}" class="alert alert-danger alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								Invalid username and password, contact system administrator for assistance</div>
+							<div th:if="${param.logout}" class="alert alert-success">You
+								have been logged out</div>
+							<div class="form-group">
+								<label for="name">Username</label> <input type="email"
+									id="email" name="email" class="form-control"
+									placeholder="username?..." required="required" />
+							</div>
+							<div class="form-group">
+								<label for="lastName">Password</label> <input type="password"
+									id="password" name="password" class="form-control"
+									required="required" placeholder="password?..." />
+							</div>
+							<div class="form-group">
+								<input type="submit" value="Signin"
+									class="btn btn-template-main" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- *** START OF INVITE **** -->
+		<div th:replace="fragments/invite :: invite">This section will
+			be replaced by a fragment</div>
+		<!-- *** END OF INVITE **** -->
+
+
+		<!-- *** FOOTER ***______________________________________________ -->
+		<footer id="footer" th:replace="fragments/footer :: footer">
+			This will be replaced by footer fragment </footer>
+		<!-- *** FOOTER END *** -->
+
+		<!-- *** COPYRIGHT ***____________________________ -->
+		<div id="copyright" th:replace="fragments/signature :: sign">
+			This will be replaced by signature fragment</div>
+		<!-- *** COPYRIGHT END *** -->
+	</div>
+
+	<!-- #### JAVASCRIPT FILES ### -->
+	<!--/*/ <th:block th:include="fragments/scripts :: scripts"></th:block> /*/-->
+</body>
+</html>

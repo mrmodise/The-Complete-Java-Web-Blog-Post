@@ -20,8 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring()
-			.antMatchers("/src/main/resources/**")
-			.antMatchers("/static/**");
+			.antMatchers("/resources/**")
+			.antMatchers("/console/**");
 	}
 	
 	@Autowired
@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.anyRequest().permitAll()
 		.and()
 			.formLogin()
-			.loginPage("/")
+			.loginPage("/login")
 			.usernameParameter("email")
 			.permitAll()
 		.and()
