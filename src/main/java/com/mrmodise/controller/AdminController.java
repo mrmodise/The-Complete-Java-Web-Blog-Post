@@ -66,7 +66,7 @@ public class AdminController {
 	@RequestMapping("/post/single/view/{id}")
 	public String viewPost(@PathVariable(value = "id") Long id, Model model) {
 		model.addAttribute("post", postService.getPost(id));
-		return "/admin/posts/view-post";
+		return "admin/posts/view-post";
 	}
 
 	@RequestMapping(value = "/post/delete/{id}")
