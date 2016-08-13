@@ -13,6 +13,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		super.addViewControllers(registry);
 		registry.addViewController("/login").setViewName("login/login");
 		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+		/*registry.addViewController("/").setViewName("index");
+		registry.addViewController("/admin/").setViewName("admin/admin");
+		registry.addViewController("/author").setViewName("author/staff-writer");
+		registry.addViewController("/our-team").setViewName("teams/team");*/
 	}
 
 }
