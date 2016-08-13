@@ -64,7 +64,7 @@
 							</div>
 							<div class="form-group">
 								<label for="teaser" class="lead" style="font-weight: bold;">Teaser: </label>
-								<span class="text-justify" th:text="${post.teaser}"></span>
+								<span class="text-justify" th:utext="${post.teaser}"></span>
 							</div>
 							<div class="form-group">
 								<label for="draft" class="lead" style="font-weight: bold;">Draft: </label>
@@ -76,7 +76,7 @@
 							</div>
 							<div class="form-group">
 							<label for="body" class="lead" style="font-weight: bold;">Content: </label>
-								<p th:text="${post.body}" class="text-justify"></p>
+								<p th:utext="${post.body}" class="text-justify"></p>
 							</div>
 							
 						</form>
