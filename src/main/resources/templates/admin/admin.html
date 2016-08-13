@@ -84,13 +84,13 @@
 											<td
 												th:text="${post.author.firstName + ' ' + post.author.lastName}">author</td>
 											<td><a
-												href="@{/admin/post/single/view/} + ${post.id}"
+												th:href="@{/admin/post/single/view/} + ${post.id}"
 												class="btn btn-template-main btn-sm"><i
 													class="fa fa-eye"></i></a></td>
-											<td><a href="@{/admin/post/edit/} + ${post.id}"
+											<td><a th:href="@{/admin/post/edit/} + ${post.id}"
 												class="btn btn-template-main btn-sm"><i
 													class="fa fa-pencil"></i></a></td>
-											<td><a href="@{/admin/post/delete/} + ${post.id}"
+											<td><a th:href="@{/admin/post/delete/} + ${post.id}"
 												class="btn btn-template-main btn-sm"><i
 													class="fa fa-trash"></i></a></td>
 										</tr>
