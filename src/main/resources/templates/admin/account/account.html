@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords" content="" />
+<title>Adding a new user and updating password</title>
+<!--/*/ <th:block th:include="fragments/headInc :: headInc"></th:block> /*/-->
+</head>
+<body>
+	<!-- *** START OF HEADER ***  -->
+	<header th:replace="fragments/header :: header"> This section
+		of the header will be replaced by a fragment header </header>
+	<!-- *** END OF HEADER ***  -->
+
+	<!--*** START OF MAIN ***-->
+	<div id="heading-breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h1>New Post - Admin</h1>
+				</div>
+				<div class="col-md-6">
+					<ul class="breadcrumb">
+						<li><a th:href="@{/admin/}">ADMIN</a></li>
+						<li>New Post</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="content" class="clearfix">
+
+		<div class="container">
+
+			<div class="row">
+
+				<!-- *** LEFT COLUMN ***			 _________________________________________________________ -->
+				<div th:replace="admin/fragments/admin-adverts :: admin-adverts">This
+					side menu will be replaced by fragment code</div>
+				<!-- END OF LEFT COLUMN -->
+
+				<!-- *** LEFT COLUMN ***
+			 _________________________________________________________ -->
+
+                    <div class="col-md-9 clearfix" id="customer-account">
+
+                        <p class="lead">Change your personal details and password here.</p>
+                       
+                        <div class="box">
+
+                            <div class="heading">
+                                <h3 class="text-uppercase">Change password</h3>
+                            </div>
+
+                            <form>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="password_old">Old password</label>
+                                            <input type="password" class="form-control" id="password_old" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="password_1">New password</label>
+                                            <input type="password" class="form-control" id="password_1" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="password_2">Retype new password</label>
+                                            <input type="password" class="form-control" id="password_2" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Save new password</button>
+                                </div>
+                            </form>
+
+                        </div>
+                        <!-- /.box -->
+
+
+                        <div class="clearfix">
+                            <div class="heading">
+                                <h3 class="text-uppercase">Personal details</h3>
+                            </div>
+
+                            <form>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="firstname">Firstname</label>
+                                            <input type="text" class="form-control" id="firstname" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Lastname</label>
+                                            <input type="text" class="form-control" id="lastname" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="company">Company</label>
+                                            <input type="text" class="form-control" id="company" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="street">Street</label>
+                                            <input type="text" class="form-control" id="street" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="form-group">
+                                            <label for="city">Company</label>
+                                            <input type="text" class="form-control" id="city" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="form-group">
+                                            <label for="zip">ZIP</label>
+                                            <input type="text" class="form-control" id="zip" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="form-group">
+                                            <label for="state">State</label>
+                                            <select class="form-control" id="state"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="form-group">
+                                            <label for="country">Country</label>
+                                            <select class="form-control" id="country"></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="phone">Telephone</label>
+                                            <input type="text" class="form-control" id="phone" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="email_account">Email</label>
+                                            <input type="text" class="form-control" id="email_account" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 text-center">
+                                        <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Save changes</button>
+
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                    <!-- /.col-md-9 -->
+
+                    <!-- *** LEFT COLUMN END *** -->
+			</div>
+		</div>
+	</div>
+	<!-- #### JAVASCRIPT FILES ### -->
+	<!--/*/ <th:block th:include="fragments/scripts :: scripts"></th:block> /*/-->
+
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		$(function() {
+			$('#datetimepicker1').datetimepicker();
+
+			$('input[maxlength]').maxlength({
+				alwaysShow : true,
+				threshold : 20,
+				warningClass : "label label-success",
+				limitReachedClass : "label label-danger"
+			});
+			$('textarea#textarea').maxlength({
+				alwaysShow : true
+			});
+		});
+
+		/*]]>*/
+	</script>
+</body>
+</html>

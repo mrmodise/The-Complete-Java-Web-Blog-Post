@@ -31,7 +31,7 @@
 					</div>
 					<div class="col-md-6">
 						<ul class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
+							<li><a th:href="@{/}">Home</a></li>
 							<li>Latest Posts</li>
 						</ul>
 
@@ -61,7 +61,7 @@
 									</h2>
 									<div class="clearfix">
 										<p class="author-category">
-											By <a th:href="@{/member-profile}"
+											By <a th:href="@{/member-profile/} + ${post.author.id}"
 												th:text="${post.author.firstName + ' ' + post.author.lastName}">John
 												Snow</a>
 										</p>

@@ -25,11 +25,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	protected void configureAuth(AuthenticationManagerBuilder auth) throws Exception {
-		// auth.userDetailsService(userDetailsService);
+		auth.userDetailsService(userDetailsService);
 
-		auth.inMemoryAuthentication()
+		/*auth.inMemoryAuthentication()
 		.withUser("admin@gmail.com").password("morebodikagiso").roles("ADMIN")
-		.and().withUser("kagisomodise@gmail.com").password("morebodikagiso").roles("USER");
+		.and().withUser("kagisomodise@gmail.com").password("morebodikagiso").roles("USER");*/
 	}
 
 	@Override

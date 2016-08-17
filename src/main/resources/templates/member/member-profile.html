@@ -29,9 +29,8 @@
 					</div>
 					<div class="col-md-5">
 						<ul class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="team.html">Team Members</a></li>
-							<li>Han Solo</li>
+							<li><a th:href="@{/}">Home</a></li>
+							<li>Member</li>
 						</ul>
 
 					</div>
@@ -99,7 +98,7 @@
 
 						<div class="col-md-4">
 							<img class="img-responsive img-circle" alt=""
-								src="img/detailsquare.jpg" />
+								th:src="@{/img/detailsquare.jpg}" />
 						</div>
 					</div>
 				</section>
@@ -164,7 +163,7 @@
 							</div>
 
 							<ul class="owl-carousel customers">
-								<li class="item"><img src="img/customer-1.png" alt=""
+								<li class="item"><img th:src="@{/img/customer-1.png}" alt=""
 									class="img-responsive" /></li>
 								<li class="item"><img src="img/customer-2.png" alt=""
 									class="img-responsive" /></li>

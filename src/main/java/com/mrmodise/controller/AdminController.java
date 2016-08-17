@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.mrmodise.domain.Post;
 import com.mrmodise.service.AuthorService;
 import com.mrmodise.service.PostService;
+import com.mrmodise.service.UserService;
 
 @Controller
 @RequestMapping("/admin")
@@ -25,11 +26,13 @@ public class AdminController {
 
 	private PostService postService;
 	private AuthorService authorService;
+	private UserService userService;
 
 	@Autowired
-	public AdminController(PostService postService, AuthorService authorService) {
+	public AdminController(PostService postService, AuthorService authorService, UserService userService) {
 		this.postService = postService;
 		this.authorService = authorService;
+		this.userService = userService;
 	}
 
 	@RequestMapping("/")
@@ -100,6 +103,12 @@ public class AdminController {
 		model.addAttribute("authors", authorService.findAllAuthors());
 
 		return "admin/posts/add-post";
+	}
+	
+	@RequestMapping("/account/{email}")
+	public String account(@PathVariable(value="email") String email, Model model){
+		model.addAttribute("user", userService.findByEmail(email));
+		return "admin/account/account";
 	}
 
 }

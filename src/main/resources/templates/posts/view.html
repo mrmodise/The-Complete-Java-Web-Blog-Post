@@ -48,7 +48,7 @@
 			_________________________________________________________ -->
 					<div class="col-md-9" id="blog-post">
 						<p class="text-muted text-uppercase mb-small text-right">
-							By <a href="#" th:text="${post.author.firstName}">John Slim</a> on 
+							By <a th:href="@{/member-profile/} + ${post.author.id}" th:text="${post.author.firstName}">John Slim</a> on 
 							<span th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy')}">June
 								20, 2013</span>
 						</p>
@@ -82,7 +82,11 @@
 								faucibus, tortor neque egestas augue, eu vulputate magna eros eu
 								erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis,
 								accumsan porttitor, facilisis luctus, metus</div>
-
+								<hr />
+<a th:href="@{/}" class="pull-right btn btn-template-main pull-left">Back</a>
+<a href="#" class="pull-right btn btn-template-main pull-right"><i class="fa fa-arrow-circle-up"></i></a>
+						<br />
+						
 						</div>
 						<!-- /#post-content -->
 					</div>

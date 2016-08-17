@@ -73,9 +73,11 @@ _________________________________________________________ -->
 
 						<ul class="nav navbar-nav navbar-right">
 							<li th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}"><a  th:href="@{/}"> Home </a></li>
-							<li th:classappend="${#httpServletRequest.getRequestURI() == '/about-financial-tech-journal' ? 'active':''}"><a th:href="@{about-financial-tech-journal}">Services</a></li>
+							<li th:classappend="${#httpServletRequest.getRequestURI() == '/about-financial-tech-journal' ? 'active':''}"><a th:href="@{about-financial-tech-journal}">About Us</a></li>
+							 							<li th:classappend="${#httpServletRequest.getRequestURI() == '/contact-us' ? 'active':''}"><a th:href="@{/contact-us}">
+									Contact Us</a></li>
 							 <li class="dropdown">
-                                    <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Blogs <b class="caret"></b></a>
+                                    <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Articles <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li><a th:href="@{/finance}">Finance</a>
                                         </li>
@@ -87,9 +89,8 @@ _________________________________________________________ -->
                                         </li>
                                     </ul>
                                 </li>
-							<li th:classappend="${#httpServletRequest.getRequestURI() == '/contact-us' ? 'active':''}"><a th:href="@{/contact-us}">
-									Contact Us</a></li>
-							<li th:classappend="${#httpServletRequest.getRequestURI() == '/our-team' ? 'active':''}"><a th:href="@{/our-team}">Our Team</a></li>
+
+							<li th:classappend="${#httpServletRequest.getRequestURI() == '/our-team' ? 'active':''}"><a th:href="@{/our-team}">Services</a></li>
 							<li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/' ? 'active':''}" sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/admin/}">Admin</a></li>
 						</ul>
 					</div>
