@@ -1,5 +1,7 @@
 package com.mrmodise.service.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,21 @@ public class UserServiceImpl implements UserService, UserDetailsService{
 	@Override
 	public User saveUser(User user) {
 		return userRepository.save(user);
+	}
+
+	@Override
+	public List<User> findAllActiveUsers() {
+		return (List<User>) userRepository.findAllByStatus("enabled");
+	}
+
+	@Override
+	public User findByFirstName(String author) {
+		return userRepository.findByFirstName(author);
+	}
+
+	@Override
+	public User findById(Long id) {
+		return userRepository.findOne(id);
 	}
 
 }

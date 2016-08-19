@@ -11,7 +11,8 @@ public interface PostService {
 	List<Post> list();
 	Post getPost(Long id);
 	Post findPostBySlug(String slug);
-	List<Post> findPostByAuthor(String author);
-	List<Post> findDraftPosts();
+	List<Post> findPostByAuthor(String authorId);
+	List<Post> findDraftPosts(Long id);
 	void deletePost(Long id);
+	List<Post> findByUserId(Long id);
 }

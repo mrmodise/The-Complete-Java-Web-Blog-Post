@@ -7,16 +7,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mrmodise.service.PostService;
+import com.mrmodise.service.UserService;
 
 @Controller
 public class HomeController {
 	
-		@Autowired
-		private PostService postService;
 	
+		private PostService postService;
+		private UserService userService;
+		
+		@Autowired
+		public HomeController(PostService postService, UserService userService) {
+			this.postService = postService;
+			this.userService = userService;
+		}
+
 		// root route and mapping to view
 		@RequestMapping("/")
 		public String home(Model model){
+			System.out.println(postService.list());
 			model.addAttribute("posts", postService.list());
 			return "index";
 		}
@@ -34,9 +43,9 @@ public class HomeController {
 		}
 		
 		// member profile route and mapping to view
-		@RequestMapping("/member-profile/{author}")
-		public String member(@PathVariable(value="author") String author, Model model){
-			model.addAttribute("author", postService.findPostByAuthor(author));
+		@RequestMapping("/member-profile/{id}")
+		public String member(@PathVariable(value="id") Long id, Model model){
+			model.addAttribute("user", userService.findById(id));
 			return "member/member-profile";
 		}
 		

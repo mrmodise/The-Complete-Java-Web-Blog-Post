@@ -1,5 +1,3 @@
-insert into author (email,first_name, last_name) values ('kagisomodise@fintechjournal.co.bw','Kagiso', 'Modise');
-
 SET @TEASER = 'Businesses operating in the modern economy find themselves provided with a new set of challenges (characterized as the era of the 3Cs: overwhelming complexity, tremendous competition and change). They face fickle customers who could change mind at the click of the mouse, uncertainty and increased competition that come from operating in a now global economy. To compete and to succeed businesses have had to change their strategies to make customer satisfaction their overriding goal. Firms like Apple, Microsoft, Barclays and any other successful business are customer-focused, making customer satisfaction the center of their operations and  all their activities are to increase value for their customers. This phenomenon has become known as “Marketing” and is the strategy that i would like you to employ in your own career strategy and watch the results.';
 
 SET @BODY = 'Marketing does not refer to promotional activities as TV adverts, social media, billboards and so forth that comes to one’s mind when they hear the word Marketing. Marketing is a ‘competitive strategy’ that companies employ to compete successfully and gain market share. It is a way of conducting business operations and thinking. The one methods that will elevate your career to new heights if you only adopt it. 
@@ -95,17 +93,19 @@ CIMA Botswana Students
 <br /><br/>
 If you need any more information please comment below and I shall provide such...';
 
-insert into post(id,image_name, title,slug,teaser,body,author_id,posted_on, draft, status) values (1,'img/cv-writing.jpg','ADOPTING BUSINESS STRATEGIES TO YOUR CAREER STRATEGY', 'business-strategy-to-your-career-strategy', @TEASER,@BODY, 1, CURRENT_TIMESTAMP, 'false', 'active');
-insert into post(id,image_name, title,slug,teaser,body,author_id,posted_on, draft, status) values (2,'img/typing.jpg','HOW I LEARNT TO TYPE', 'how-I-learn-to-type', @TEASER1,@BODY1, 1, CURRENT_TIMESTAMP, 'true', 'inactive');
-insert into post(id,image_name, title,slug,teaser,body,author_id,posted_on, draft, status) values (3,'img/candidate-cv-writing.png','STUDYING CIMA PART TIME IN BOTSWANA', 'studying-cima-part-time-in-Botswana', @TEASER3,@BODY3, 1, CURRENT_TIMESTAMP, 'false', 'active');
+--insert into author (email,first_name, last_name) values ('kagisomodise@fintechjournal.co.bw','Kagiso', 'Modise');
 
-
-insert into category values (1, 'IT Tutorial');
-insert into users values (10010, 'modisemorebodi@gmail.com', 'morebodi', 'modise', 'Rekz9434-//');
+insert into users (id, email, first_name, last_name, password, status) values (10010, 'modisemorebodi@gmail.com', 'morebodi', 'modise', '$2a$10$3UzR6.wJu5XKSZiz6jxZ9.6PXMjvLjkNcd/CouIdIPpkELee.DkF.', 'enabled');
 insert into roles values (3, 'ROLE_ADMIN');
 insert into roles values (1, 'ROLE_USER');
-insert into users values (10011, 'kagisomodise@gmail.com', 'kagiso', 'modise', 'kagisomodise');
+insert into users  (id, email, first_name, last_name, password, status) values (10011, 'kagisomodise@gmail.com', 'kagiso', 'modise', '$2a$10$Ocn/JaJjEMeKzXfUUJAWNOADYnbGLNlcqKSszGSewteptIou0iVSG', 'enabled'); --kagisomodise
 insert into user_roles values (10010, 3);
 insert into user_roles values (10010, 1);
 insert into user_roles values (10011, 1);
 insert into user_roles values (10011, 3);
+
+insert into post(id,image_name, title,slug,teaser,body, posted_on, draft, status,user_id) values (1,'img/cv-writing.jpg','ADOPTING BUSINESS STRATEGIES TO YOUR CAREER STRATEGY', 'business-strategy-to-your-career-strategy', @TEASER,@BODY, CURRENT_TIMESTAMP, 'false', 'active', 10011);
+insert into post(id,image_name, title,slug,teaser,body, posted_on, draft, status, user_id) values (2,'img/typing.jpg','HOW I LEARNT TO TYPE', 'how-I-learn-to-type', @TEASER1,@BODY1, CURRENT_TIMESTAMP, 'true', 'inactive', 10011);
+insert into post(id,image_name, title,slug,teaser,body, posted_on, draft, status,user_id) values (3,'img/candidate-cv-writing.png','STUDYING CIMA PART TIME IN BOTSWANA', 'studying-cima-part-time-in-Botswana', @TEASER3,@BODY3, CURRENT_TIMESTAMP, 'false', 'active', 10011);
+
+insert into category values (1, 'IT Tutorial');

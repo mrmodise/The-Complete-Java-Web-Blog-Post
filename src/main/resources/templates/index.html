@@ -27,7 +27,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<h1>All Posts</h1>
+						<h1>Welcome</h1>
 					</div>
 					<div class="col-md-6">
 						<ul class="breadcrumb">
@@ -61,8 +61,8 @@
 									</h2>
 									<div class="clearfix">
 										<p class="author-category">
-											By <a th:href="@{/member-profile/} + ${post.author.id}"
-												th:text="${post.author.firstName + ' ' + post.author.lastName}">John
+											By <a th:href="@{/member-profile/} + ${post.user.userId}"
+												th:text="${post.user.firstName + ' ' + post.user.lastName}">John
 												Snow</a>
 										</p>
 										<p class="date-comments">

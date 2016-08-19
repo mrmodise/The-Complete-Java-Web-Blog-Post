@@ -14,7 +14,7 @@
 		<div class="panel panel-default sidebar-menu">
 
 			<div class="panel-heading">
-				<h3 class="panel-title">Admin section</h3>
+				<h3 class="panel-title">Welcome Admin: <span class="lead" th:text="${user.firstName}"></span></h3>
 			</div>
 
 			<div class="panel-body">
@@ -25,18 +25,26 @@
 						<a href="/admin/post/create" th:href="@{/admin/post/create}"><i
 							class="fa fa-star"></i> New Post</a>
 					</li>
-				
 					<li
-						th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts-by-author/Kagiso' ? 'active':''}">
-						<a  th:href="@{/admin/posts-by-author/Kagiso} " ><i class="fa fa-list"></i>
+						th:classappend="${#httpServletRequest.getRequestURI() == '/admin/user/create' ? 'active':''}">
+						<a href="/admin/user/create" th:href="@{/admin/user/create}"><i
+							class="fa fa-user"></i> New User</a>
+					</li>
+					<li
+						th:classappend="${#httpServletRequest.getRequestURI() == '/admin/user/roles' ? 'active':''}">
+						<a href="/admin/user/roles" th:href="@{/admin/user/roles}"><i
+							class="fa fa-profile"></i> Assign Roles</a>
+					</li>
+					<li
+						th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts-by-author/' ? 'active':''}">
+						<a  th:href="@{/admin/posts-by-author/} + ${user.userId}" ><i class="fa fa-list"></i>
 							My Posts</a>
 					</li>
 					<li 
 						th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts/drafts' ? 'active':''}">
-						<a href="/admin/posts/drafts"><i class="fa fa-heart"></i> My
-							Drafts</a>
+						<a th:href="@{/admin/posts/drafts/} + ${user.userId}"><i class="fa fa-heart"></i>My Drafts</a>
 					</li>
-					<li><a th:href="@{/admin/account}"><i class="fa fa-user"></i>
+					<li><a th:href="@{/admin/account/} + ${user.userId}"><i class="fa fa-user"></i>
 							My account</a></li>
 					<li>
 						<form sec:authorize="isAuthenticated()" id="frmlogout"

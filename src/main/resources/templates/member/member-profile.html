@@ -25,7 +25,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-7">
-						<h1>Han Solo</h1>
+						<h1 th:text="${user.firstName + ' ' + user.lastName}">Han Solo</h1>
 					</div>
 					<div class="col-md-5">
 						<ul class="breadcrumb">
@@ -44,7 +44,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="heading">
-								<h2>About Han</h2>
+								<h2>About <span th:text="${user.firstName}">Han</span></h2>
 							</div>
 							<p class="lead">Do greatest at in learning steepest.
 								Breakfast extremity suffering one who all otherwise suspected.

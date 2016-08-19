@@ -4,3 +4,6 @@
 .project
 .classpath
 
+.idea/
+fin-tech-journal.iml
+

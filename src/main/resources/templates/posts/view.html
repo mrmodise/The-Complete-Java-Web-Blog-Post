@@ -48,7 +48,7 @@
 			_________________________________________________________ -->
 					<div class="col-md-9" id="blog-post">
 						<p class="text-muted text-uppercase mb-small text-right">
-							By <a th:href="@{/member-profile/} + ${post.author.id}" th:text="${post.author.firstName}">John Slim</a> on 
+							By <a th:href="@{/member-profile/} + ${post.user.userId}" th:text="${post.user.firstName + ' ' + post.user.lastName}">John Slim</a> on 
 							<span th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy')}">June
 								20, 2013</span>
 						</p>

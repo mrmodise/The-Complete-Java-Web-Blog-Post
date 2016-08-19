@@ -49,7 +49,7 @@ public class Post {
 	
 	@NotNull
 	@ManyToOne(optional = false)
-	private Author author;
+	private User user;
 	
 	public Post(){
 		this.draft = false;

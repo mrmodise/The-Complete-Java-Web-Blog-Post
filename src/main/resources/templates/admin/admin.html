@@ -47,7 +47,7 @@
 					<div class="col-md-10" id="customer-orders">
 
 						<p class="text-muted lead">Manage all the blog posts in a
-							single place</p>
+							single place </p>
 
 						<div class="box">
 							<div th:if="${message}"
@@ -82,7 +82,7 @@
 												th:classappend="${post.status == 'active' ? 'label label-info' : 'label label-danger'}"
 												th:text="${post.status}">Being prepared</span></td>
 											<td
-												th:text="${post.author.firstName + ' ' + post.author.lastName}">author</td>
+												th:text="${post.user.firstName + ' ' + post.user.lastName}">author</td>
 											<td><a
 												th:href="@{/admin/post/single/view/} + ${post.id}"
 												class="btn btn-template-main btn-sm"><i

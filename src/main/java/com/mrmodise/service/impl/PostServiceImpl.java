@@ -31,13 +31,13 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public List<Post> findPostByAuthor(String author) {
-		return postRepository.findByAuthorFirstName(author);
+	public List<Post> findPostByAuthor(String authorId) {
+		return postRepository.findByUserFirstName(authorId);
 	}
 
 	@Override
-	public List<Post> findDraftPosts() {
-		return postRepository.findByDraft(true);
+	public List<Post> findDraftPosts(Long id) {
+		return postRepository.findByDraftAndUserId(true, id);
 	}
 
 	@Override
@@ -53,6 +53,11 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public void deletePost(Long id) {
 		postRepository.delete(id);
+	}
+
+	@Override
+	public List<Post> findByUserId(Long id) {
+		return postRepository.findByUserId(id);
 	}
 
 }

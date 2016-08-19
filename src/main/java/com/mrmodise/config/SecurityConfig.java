@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -25,17 +26,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	protected void configureAuth(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService);
-
-		/*auth.inMemoryAuthentication()
-		.withUser("admin@gmail.com").password("morebodikagiso").roles("ADMIN")
-		.and().withUser("kagisomodise@gmail.com").password("morebodikagiso").roles("USER");*/
+		auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/resources/**").permitAll().antMatchers("/admin/**")
-				.hasAnyRole("USER", "ADMIN").anyRequest().permitAll().and().formLogin().loginPage("/login")
-				.usernameParameter("email").permitAll().and().logout().logoutSuccessUrl("/login?logout").permitAll();
+		http.authorizeRequests()
+			.antMatchers("/resources/**").permitAll()
+			.antMatchers("/admin/**")
+				.hasAnyRole("USER", "ADMIN").anyRequest().permitAll()
+					.and()
+				.formLogin().loginPage("/login")
+				.usernameParameter("email").permitAll()
+					.and()
+				.logout().logoutSuccessUrl("/login?logout").permitAll();
 	}
 }

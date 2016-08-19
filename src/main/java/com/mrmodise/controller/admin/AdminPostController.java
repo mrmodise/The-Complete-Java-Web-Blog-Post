@@ -1,5 +1,6 @@
-package com.mrmodise.controller;
+package com.mrmodise.controller.admin;
 
+import java.security.Principal;
 import java.util.Date;
 
 import javax.validation.Valid;
@@ -15,38 +16,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mrmodise.domain.Post;
-import com.mrmodise.service.AuthorService;
 import com.mrmodise.service.PostService;
 import com.mrmodise.service.UserService;
 
 @Controller
 @RequestMapping("/admin")
 @Secured( {"ROLE_ADMIN"} )
-public class AdminController {
-
+public class AdminPostController {
+	
 	private PostService postService;
-	private AuthorService authorService;
 	private UserService userService;
 
 	@Autowired
-	public AdminController(PostService postService, AuthorService authorService, UserService userService) {
+	public AdminPostController(PostService postService, UserService userService) {
 		this.postService = postService;
-		this.authorService = authorService;
 		this.userService = userService;
 	}
-
-	@RequestMapping("/")
-	public String admin(Model model) {
-		model.addAttribute("posts", postService.listAll());
-		return "admin/admin";
-	}
-
+	
 	@RequestMapping("/post/create")
-	public String createPost(Model model) {
+	public String createPost(Model model, Principal principal) {
 		// create a new post object
 		model.addAttribute("post", new Post());
 		// get a list of authors
-		model.addAttribute("authors", authorService.findAllAuthors());
+		model.addAttribute("user", userService.findByEmail(principal.getName()));
 
 		return "admin/posts/add-post";
 	}
@@ -56,7 +48,7 @@ public class AdminController {
 
 		if (bindingResult.hasErrors()) {
 			// get a list of authors
-			model.addAttribute("authors", authorService.findAllAuthors());
+//			model.addAttribute("authors", authorService.findAllAuthors());
 			return "admin/posts/add-post";
 		} else {
 			post.setPostedOn(new Date());
@@ -71,6 +63,18 @@ public class AdminController {
 		model.addAttribute("post", postService.getPost(id));
 		return "admin/posts/view-post";
 	}
+	
+	@RequestMapping("/post/edit/{id}")
+	public String editPost(@PathVariable(value="id") Long id, Model model) {
+
+		// create a new post object
+		model.addAttribute("post", postService.getPost(id));
+
+		// get a list of authors
+//		model.addAttribute("authors", authorService.findAllAuthors());
+
+		return "admin/posts/add-post";
+	}
 
 	@RequestMapping(value = "/post/delete/{id}")
 	public String deletePost(@PathVariable(value = "id") Long id, Model model, RedirectAttributes redirectAttributes) {
@@ -80,35 +84,7 @@ public class AdminController {
 		model.addAttribute("posts", postService.listAll());
 		return "redirect:/admin/";
 	}
-
-	@RequestMapping("/posts-by-author/{author}")
-	public String listAuthor(@PathVariable(value = "author") String author, Model model) {
-		model.addAttribute("posts", postService.findPostByAuthor(author));
-		return "admin/admin";
-	}
-
-	@RequestMapping("/posts/drafts")
-	public String drafts(Model model) {
-		model.addAttribute("posts", postService.findDraftPosts());
-		return "admin/admin";
-	}
 	
-	@RequestMapping("/post/edit/{id}")
-	public String editPost(@PathVariable(value="id") Long id, Model model) {
-
-		// create a new post object
-		model.addAttribute("post", postService.getPost(id));
-
-		// get a list of authors
-		model.addAttribute("authors", authorService.findAllAuthors());
-
-		return "admin/posts/add-post";
-	}
 	
-	@RequestMapping("/account/{email}")
-	public String account(@PathVariable(value="email") String email, Model model){
-		model.addAttribute("user", userService.findByEmail(email));
-		return "admin/account/account";
-	}
 
 }

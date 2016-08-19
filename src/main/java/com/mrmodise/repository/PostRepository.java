@@ -12,6 +12,7 @@ public interface PostRepository extends PagingAndSortingRepository<Post, Long> {
 	List<Post> findAllByDraft(boolean draft);
 	Post findFirstByOrderByPostedOn();
 	Post findBySlug(String slug);
-	List<Post> findByAuthorFirstName(String author);
-	List<Post> findByDraft(boolean draft);
+	List<Post> findByUserFirstName(String authorId);
+	List<Post> findByDraftAndUserId(boolean draft, Long id);
+	List<Post> findByUserId(Long id);
 }
