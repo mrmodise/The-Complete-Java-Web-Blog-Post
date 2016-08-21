@@ -10,4 +10,5 @@ public interface UserService {
 	List<User> findAllActiveUsers();
 	User findByFirstName(String author);
 	User findById(Long id);
+	User updateUser(User user, Long id);
 }

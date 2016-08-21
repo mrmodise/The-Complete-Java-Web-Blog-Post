@@ -50,6 +50,7 @@
                         <p class="lead">Change your personal details and password here.</p>
                        
                         <div class="box">
+                        <div th:if="${success}" class="alert alert-success">success message</div>
 
                             <div class="heading">
                                 <h3 class="text-uppercase">Change password</h3>
@@ -94,20 +95,24 @@
                                 <h3 class="text-uppercase">Personal details</h3>
                             </div>
 
-                            <form  th:action="@{/admin/user/save}" method="post"
+                            <form  th:action="@{/admin/user/update}" method="post"
 							th:object="${user}"> 	
 							<input type="hidden" th:field="*{userId}" />
+							<input type="hidden" th:field="*{password}" />
+							<input type="hidden" th:field="*{status}" />
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
+                                        <div class="form-group" th:classappend="${#fields.hasErrors('firstName')}? 'has-error'">
                                             <label for="firstname" >Firstname </label>
                                             <input type="text" class="form-control" th:field="*{firstName}" id="firstname" />
+                                            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:class="help-block">Firstname is required</span>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-group">
+                                        <div class="form-group" th:classappend="${#fields.hasErrors('lastName')}? 'has-error'">
                                             <label for="lastname" >Lastname</label>
                                             <input type="text" th:field="*{lastName}" class="form-control" id="lastname" />
+                                            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" th:class="help-block">Lastname is required</span>
                                         </div>
                                     </div>
                                 </div>
@@ -151,7 +156,7 @@
                                             <input type="text" class="form-control" th:field="*{twitter}"/>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-3">
+                                    <div class="col-sm-6 col-md-3" th:classappend="${#fields.hasErrors('altEmail')}? 'has-error'">
                                         <div class="form-group">
                                             <label for="country">Email</label>
                                             <input type="text" class="form-control" th:field="*{altEmail}" name="email"/>
@@ -159,21 +164,22 @@
                                     </div>
 
                                     <div class="col-sm-12">
-                                        <div class="form-group">
+                                        <div class="form-group" th:classappend="${#fields.hasErrors('shortBio')}? 'has-error'">
                                             <label for="phone">Short Bio</label>
                                             <textarea name="shortBio" id="" th:field="*{shortBio}" cols="30" rows="5" class="form-control"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
-                                        <div class="form-group">
+                                        <div class="form-group" th:classappend="${#fields.hasErrors('fullBio')}? 'has-error'">
                                             <label for="email_account">Full Bio</label>
                                             <textarea name="shortBio" id="" th:field="*{fullBio}" cols="30" rows="10" class="form-control"></textarea>
                                         </div>
                                     </div>
                                      <div class="col-sm-12">
-                                        <div class="form-group">
+                                        <div class="form-group" th:classappend="${#fields.hasErrors('responsibilities')}? 'has-error'">
                                             <label for="email_account">Responsibilities</label>
                                             <textarea name="shortBio" id="" th:field="*{responsibilities}" cols="30" rows="10" class="form-control"></textarea>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center">

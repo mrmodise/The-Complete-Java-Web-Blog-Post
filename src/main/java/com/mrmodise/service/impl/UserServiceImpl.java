@@ -63,4 +63,20 @@ public class UserServiceImpl implements UserService, UserDetailsService{
 		return userRepository.findOne(id);
 	}
 
+	@Override
+	public User updateUser(User user, Long id) {
+		User updatedUser = findById(id);
+		updatedUser.setFacebook(user.getFacebook());
+		updatedUser.setFirstName(user.getFirstName());
+		updatedUser.setFullBio(user.getFullBio());
+		updatedUser.setLinkedIn(user.getLinkedIn());
+		updatedUser.setLastName(user.getLastName());
+		updatedUser.setTwitter(user.getTwitter());
+		updatedUser.setAltEmail(user.getAltEmail());
+		updatedUser.setShortBio(user.getShortBio());
+		updatedUser.setResponsibilities(user.getResponsibilities());
+		
+		return userRepository.save(updatedUser);
+	}
+
 }

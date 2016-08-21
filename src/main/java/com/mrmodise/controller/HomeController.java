@@ -25,7 +25,6 @@ public class HomeController {
 		// root route and mapping to view
 		@RequestMapping("/")
 		public String home(Model model){
-			System.out.println(postService.list());
 			model.addAttribute("posts", postService.list());
 			return "index";
 		}
