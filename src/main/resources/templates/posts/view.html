@@ -48,17 +48,19 @@
 			_________________________________________________________ -->
 					<div class="col-md-9" id="blog-post">
 						<p class="text-muted text-uppercase mb-small text-right">
-							By <a th:href="@{/member-profile/} + ${post.user.userId}" th:text="${post.user.firstName + ' ' + post.user.lastName}">John Slim</a> on 
-							<span th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy')}">June
+							By <a th:href="@{/member-profile/} + ${post.user.userId}"
+								th:text="${post.user.firstName + ' ' + post.user.lastName}">John
+								Slim</a> on <span
+								th:text="${#calendars.format(post.postedOn,'dd-MMM-yyyy')}">June
 								20, 2013</span>
 						</p>
-						<p class="text-justify" th:utext="${post.teaser}">This is the lead
-							paragraph of the article. Pellentesque habitant morbi tristique
-							senectus et netus et malesuada fames ac turpis egestas.
+						<p class="text-justify" th:utext="${post.teaser}">This is the
+							lead paragraph of the article. Pellentesque habitant morbi
+							tristique senectus et netus et malesuada fames ac turpis egestas.
 							Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
 
-						<div id="post-content"  th:inline="text">
-					
+						<div id="post-content" th:inline="text">
+
 							<p>
 								<img th:src="@{/img/blog2.jpg}" class="img-responsive"
 									alt="Example blog post alt" />
@@ -69,7 +71,8 @@
 							</blockquote>
 
 
-							<div th:utext="${post.body}" class="text-justify">Pellentesque habitant morbi tristique senectus et netus et
+							<div th:utext="${post.body}" class="text-justify">
+								Pellentesque habitant morbi tristique senectus et netus et
 								malesuada fames ac turpis egestas. Vestibulum tortor quam,
 								feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu
 								libero sit amet quam egestas semper. Aenean ultricies mi vitae
@@ -81,12 +84,14 @@
 								pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
 								faucibus, tortor neque egestas augue, eu vulputate magna eros eu
 								erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis,
-								accumsan porttitor, facilisis luctus, metus</div>
-								<hr />
-<a th:href="@{/}" class="pull-right btn btn-template-main pull-left">Back</a>
-<a href="#" class="pull-right btn btn-template-main pull-right"><i class="fa fa-arrow-circle-up"></i></a>
-						<br />
-						
+								accumsan porttitor, facilisis luctus, metus
+							</div>
+							<hr />
+							<a th:href="@{/}"
+								class="pull-right btn btn-template-main pull-left">Back</a> <a
+								href="#" class="pull-right btn btn-template-main pull-right"><i
+								class="fa fa-arrow-circle-up"></i></a> <br />
+							<div id="disqus_thread"></div>
 						</div>
 						<!-- /#post-content -->
 					</div>
@@ -95,12 +100,13 @@
 					<!-- /.col-md-9 -->
 					<!-- *** LEFT COLUMN END *** -->
 					<!-- *** RIGHT COLUMN ***			 _________________________________________________________ -->
-						<div th:replace="fragments/adverts :: adverts">This side menu will be replaced by fragment code</div>
+					<div th:replace="fragments/adverts :: adverts">This side menu
+						will be replaced by fragment code</div>
 					<!-- *** END OF RIGHT COLUMN ***-->
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- *** START OF INVITE **** -->
 		<div th:replace="fragments/invite :: invite">This section will
 			be replaced by a fragment</div>
@@ -119,5 +125,30 @@
 
 	<!-- #### JAVASCRIPT FILES ### -->
 	<!--/*/ <th:block th:include="fragments/scripts :: scripts"></th:block> /*/-->
+
+	<script>
+
+/**
+ *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+ *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//mrmodise.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+	<noscript>
+		Please enable JavaScript to view the <a
+			href="https://disqus.com/?ref_noscript">comments powered by
+			Disqus.</a>
+	</noscript>
+
 </body>
 </html>

@@ -46,7 +46,7 @@
 							<div class="heading">
 								<h2>About <span th:text="${user.firstName}">Han</span></h2>
 							</div>
-							<p class="lead">Do greatest at in learning steepest.
+							<p class="lead" th:text="${user.shortBio}">Do greatest at in learning steepest.
 								Breakfast extremity suffering one who all otherwise suspected.
 								He at no nothing forbade up moments. Wholly uneasy at missed be
 								of pretty whence. John way sir high than law who week.
@@ -56,7 +56,7 @@
 					</div>
 
 					<div class="row">
-						<div class="col-md-8">
+						<div class="col-md-8" th:text="${user.fullBio}">
 							<p>Satisfied conveying an dependent contented he gentleman
 								agreeable do be. Warrant private blushes removed an in equally
 								totally if. Delivered dejection necessary objection do mr
@@ -83,7 +83,7 @@
 								alteration at surrounded comparison.</p>
 
 							<div class="heading">
-								<h3>Han's main responsibilities are</h3>
+								<h3 th:text="${user.responsibilities}">Han's main responsibilities are</h3>
 							</div>
 
 							<ul class="ul-icons">
