@@ -1,7 +1,6 @@
 package com.mrmodise.domain;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,13 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * 
@@ -71,8 +69,8 @@ public class User {
 	@Column(columnDefinition="TEXT")
 	private String responsibilities;
 	
-	@OneToMany(cascade = {CascadeType.REMOVE, CascadeType.MERGE},fetch = FetchType.EAGER, mappedBy="user", orphanRemoval=true)
-	private List<Post> posts;
+	//@OneToMany(cascade = {CascadeType.REMOVE, CascadeType.MERGE},fetch = FetchType.EAGER, mappedBy="user", orphanRemoval=true)
+	//private List<Post> posts;
 	
 	/**
 	 * create user roles table
@@ -124,8 +122,8 @@ public class User {
 	}
 
 	public void setPassword(String password) {
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		this.password = passwordEncoder.encode(password);
+		//BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		this.password = password;
 	}
 
 	public Set<Role> getRoles() {
@@ -142,14 +140,6 @@ public class User {
 
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	public List<Post> getPosts() {
-		return posts;
-	}
-
-	public void setPosts(List<Post> posts) {
-		this.posts = posts;
 	}
 
 	public Long getId() {
